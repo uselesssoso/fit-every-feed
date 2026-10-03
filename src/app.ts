@@ -248,7 +248,7 @@ function maskFor(group: OutputGroup): string {
     `<i class="band" style="right:0;width:${right};top:${top};bottom:${bottom}"></i>`,
   ];
   for (const block of safe.blocks) {
-    parts.push(`<i class="block" style="left:${pct(block.x)};top:${pct(block.y)};width:${pct(block.w)};height:${pct(block.h)}"></i>`);
+    parts.push(`<i class="zone" style="left:${pct(block.x)};top:${pct(block.y)};width:${pct(block.w)};height:${pct(block.h)}"></i>`);
   }
   return `<div class="mask">${parts.join("")}</div>`;
 }

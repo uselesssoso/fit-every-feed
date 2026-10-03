@@ -22,24 +22,62 @@ export function modelFailed(): boolean {
   return loadFailed;
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("model init timed out")), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      },
+    );
+  });
+}
+
+function softwareGl(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    const gl = canvas.getContext("webgl");
+    if (!gl) return true;
+    const info = gl.getExtension("WEBGL_debug_renderer_info");
+    const renderer = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : "";
+    return /swiftshader|llvmpipe|softpipe|software/i.test(renderer);
+  } catch {
+    return true;
+  }
+}
+
 export async function loadDetectors(): Promise<void> {
   if (faceDet || loadFailed) return;
   const { FaceDetector, ObjectDetector, FilesetResolver } = await import("@mediapipe/tasks-vision");
   const wasm = await FilesetResolver.forVisionTasks(`${location.origin}/mediapipe`);
-  const delegates = ["GPU", "CPU"] as const;
+  // The GPU delegate can lock the main thread on a software GL driver.
+  const delegates = softwareGl() ? (["CPU"] as const) : (["GPU", "CPU"] as const);
   let last: unknown;
   for (const delegate of delegates) {
     try {
-      faceDet = await FaceDetector.createFromOptions(wasm, {
-        baseOptions: { modelAssetPath: "/models/blaze_face_short_range.tflite", delegate },
-        runningMode: "IMAGE",
-        minDetectionConfidence: 0.45,
-      });
-      objDet = await ObjectDetector.createFromOptions(wasm, {
-        baseOptions: { modelAssetPath: "/models/efficientdet_lite0.tflite", delegate },
-        runningMode: "IMAGE",
-        scoreThreshold: 0.35,
-      });
+      const face = await withTimeout(
+        FaceDetector.createFromOptions(wasm, {
+          baseOptions: { modelAssetPath: "/models/blaze_face_short_range.tflite", delegate },
+          runningMode: "IMAGE",
+          minDetectionConfidence: 0.45,
+        }),
+        8000,
+      );
+      const objects = await withTimeout(
+        ObjectDetector.createFromOptions(wasm, {
+          baseOptions: { modelAssetPath: "/models/efficientdet_lite0.tflite", delegate },
+          runningMode: "IMAGE",
+          scoreThreshold: 0.35,
+        }),
+        8000,
+      );
+      faceDet = face;
+      objDet = objects;
       return;
     } catch (err) {
       last = err;
