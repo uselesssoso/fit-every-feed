@@ -451,8 +451,8 @@ function yieldUi(): Promise<void> {
 
 function drawSmall(source: CanvasImageSource, srcW: number, srcH: number): HTMLCanvasElement {
   const canvas = document.createElement("canvas");
-  const scale = 480 / srcW;
-  canvas.width = 480;
+  const scale = 768 / srcW;
+  canvas.width = 768;
   canvas.height = Math.max(2, Math.round(srcH * scale));
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
   ctx?.drawImage(source, 0, 0, canvas.width, canvas.height);

@@ -24,7 +24,7 @@ npm run build
 - Placements are grouped by platform, with select-all and presets (all, vertical, square, landscape, 9:16).
 - Outputs are de-duplicated by exact pixel size. One file can cover several placements; the grid and `manifest.txt` say which. `1200×628` and `800×418` stay separate, because 1.911 and 1.914 are not the same crop.
 - Images (JPG, PNG, WebP) are drawn to a canvas. Video (MP4, MOV, WebM) is cropped with a moving window and encoded to H.264 MP4 in a worker, then zipped.
-- Faces and people are found with MediaPipe (BlazeFace, then EfficientDet). If nothing is there, it follows the busiest part of the frame, then the center.
+- Faces and people are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it follows the busiest part of the frame, then the center.
 - Video is sampled (about four times a second, capped at 160 samples) and the crop eases with a damped spring, so it does not jitter. Drag and scroll on a preview pan and zoom; on video that offset rides along the tracked path.
 - Safe zones can be drawn per platform. The crop tries to keep the subject out of the zones you leave on.
 - A size that breaks duration, minimum resolution, file size, or format is marked in red with a plain reason. It is still in the zip.
@@ -43,7 +43,7 @@ Built for a 1080p clip of about 30–60 seconds on a normal laptop.
 - Export is 30 fps H.264, one size at a time, so the tab stays usable. Several long vertical sizes will take a while and hold the encoded files in memory until the zip is built.
 - Chrome (or another browser with WebCodecs) is required for video export. If a codec will not decode, the export says so.
 - Audio is kept when the browser can decode it, and re-encoded as AAC.
-- 4K sources work, but detection is done on a 480-pixel-wide frame and the full-resolution encode is slower.
+- 4K sources work, but detection is done on a 768-pixel-wide frame and the full-resolution encode is slower.
 - WebP and odd containers are fine as input. The file you download is JPG, PNG, or MP4.
 
 The sample clip is a Pexels video of a person walking (Miriam Alonso), scaled to 1080p. The sample image is one frame of it.
