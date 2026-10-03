@@ -91,7 +91,7 @@ h1, h2, h3 {
 }
 h1 { white-space: nowrap; }
 
-.lang, .check, .primary, .textlink {
+.lang, .check, .primary, .textlink, .chip, .plat-toggle {
   margin: 0;
   padding: 0;
   border: 0;
@@ -136,9 +136,18 @@ html[lang="zh-Hans"] .tagline {
 .presets, .samples {
   display: flex;
   flex-wrap: wrap;
-  column-gap: calc(var(--cell) * 2);
-  row-gap: 0;
+  column-gap: calc(var(--cell));
+  row-gap: calc(var(--cell) / 2);
 }
+
+.chip {
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.chip::before { content: "[ "; color: var(--ink); }
+.chip::after { content: " ]"; color: var(--ink); }
+.chip.is-on { color: var(--ink); font-weight: 700; }
+.chip:hover { color: var(--ink); }
 
 .check { color: var(--ink-2); white-space: normal; }
 .check::before { content: "[ ] "; color: var(--ink); white-space: pre; }
@@ -147,14 +156,18 @@ html[lang="zh-Hans"] .tagline {
 .check:hover { color: var(--ink); }
 .check:disabled { cursor: default; }
 
-.plat { margin-top: calc(var(--cell) * 2); }
-.plat-head {
+.plat { margin-top: var(--cell); }
+.plat-toggle {
   display: flex;
+  width: 100%;
   align-items: baseline;
-  justify-content: space-between;
-  gap: var(--cell);
+  gap: 0.8ch;
 }
-.plist { margin-top: calc(var(--cell) / 2); }
+.caret { color: var(--ink); }
+.plat-name { font-weight: 700; }
+.plat-count { margin-left: auto; color: var(--ink-2); }
+.plat-count.is-on { color: var(--ink); }
+.plist { margin-top: calc(var(--cell) / 2); margin-left: calc(var(--cell) * 1.5); }
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -229,8 +242,13 @@ html[lang="zh-Hans"] .hint { font-style: normal; }
 .mask { position: absolute; inset: 0; pointer-events: none; }
 .band, .zone {
   position: absolute;
-  background: rgba(26, 26, 26, 0.18);
-  outline: 1px solid rgba(26, 26, 26, 0.45);
+  background-color: rgba(26, 26, 26, 0.34);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(26, 26, 26, 0.62) 0 2px,
+    transparent 2px 7px
+  );
+  outline: 1px solid rgba(26, 26, 26, 0.9);
   outline-offset: -1px;
 }
 .shot-size { margin-top: calc(var(--cell) / 2); }

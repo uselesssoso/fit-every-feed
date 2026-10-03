@@ -1,4 +1,4 @@
-import { CATALOG, itemMatchesKind } from "./spec/catalog";
+import { CATALOG, itemMatchesKind, itemsForProduct } from "./spec/catalog";
 import { dedupe, matchesPreset, unionSafe, type OutputGroup, type Preset } from "./spec/dedupe";
 import { PLATFORM_ORDER, type CatalogItem } from "./spec/types";
 import { checkPlacement, chooseVideoBitrate, imageEncoding, strictestMaxBytes, type Violation } from "./spec/check";
@@ -7,9 +7,9 @@ import { frameCrop, type SubjectBox } from "./crop/frame";
 import { sampleTimes, sampleTrack, smoothTrack, type TrackPoint } from "./crop/smooth";
 import { detectOnCanvas, loadDetectors, modelFailed, toSource, type FoundKind } from "./detect/subject";
 import { renderImage } from "./export/image";
-import { exportVideos } from "./export/video";
 import { makeZip, manifestText } from "./export/zip";
 import { noteText, placementLabel, t, violationText, type Lang } from "./i18n";
+import { ENABLE_VIDEO } from "./flags";
 
 const PLATFORM_NAME: Record<string, string> = {
   google: "Google Ads",
@@ -22,7 +22,10 @@ const PLATFORM_NAME: Record<string, string> = {
   snapchat: "Snapchat",
 };
 
-const PRESETS: Preset[] = ["all", "vertical", "square", "landscape", "stories"];
+const PRESETS: Preset[] = ["stories", "square", "vertical", "landscape", "all"];
+const ACCEPT = ENABLE_VIDEO
+  ? "image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,.jpg,.jpeg,.png,.webp,.mp4,.mov,.webm,.m4v"
+  : "image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp";
 
 type Adj = { zoom: number; dx: number; dy: number };
 
@@ -40,7 +43,8 @@ type Asset = {
 
 const state = {
   lang: "en" as Lang,
-  selected: new Set<string>(CATALOG.map((item) => item.id)),
+  selected: new Set<string>(),
+  open: new Set<string>(),
   safeOn: true,
   safePlatforms: new Set(["google", "youtube", "meta", "tiktok", "pinterest", "snapchat"]),
   file: null as File | null,
@@ -66,12 +70,26 @@ function clamp(v: number, a: number, b: number): number {
   return Math.max(a, Math.min(b, v));
 }
 
-function kind(): "image" | "video" | null {
-  return state.asset?.kind ?? null;
+function offered(): CatalogItem[] {
+  return itemsForProduct(ENABLE_VIDEO);
+}
+
+function selectable(): CatalogItem[] {
+  const media = ENABLE_VIDEO ? (state.asset?.kind ?? null) : "image";
+  return offered().filter((item) => itemMatchesKind(item, media));
 }
 
 function groups(): OutputGroup[] {
-  return dedupe(CATALOG.filter((item) => state.selected.has(item.id)), kind());
+  const media = ENABLE_VIDEO ? (state.asset?.kind ?? null) : "image";
+  return dedupe(
+    offered().filter((item) => state.selected.has(item.id)),
+    media,
+  );
+}
+
+function selectedSizes(platformKey: string): number {
+  const items = selectable().filter((item) => item.platformKey === platformKey && state.selected.has(item.id));
+  return new Set(items.map((item) => `${item.width}x${item.height}`)).size;
 }
 
 function adjOf(key: string): Adj {
@@ -126,11 +144,12 @@ function setStatus(text: string) {
 }
 
 function followText(): string {
+  const moving = ENABLE_VIDEO && state.asset?.kind === "video";
   if (modelFailed() && state.follow !== "face" && state.follow !== "person") return t("modelFail", state.lang);
-  if (state.follow === "face") return t("followFace", state.lang);
-  if (state.follow === "person") return t("followPerson", state.lang);
-  if (state.follow === "object") return t("followObject", state.lang);
-  if (state.follow === "saliency") return t("followSaliency", state.lang);
+  if (state.follow === "face") return t(moving ? "followFaceMove" : "followFace", state.lang);
+  if (state.follow === "person") return t(moving ? "followPersonMove" : "followPerson", state.lang);
+  if (state.follow === "object") return t(moving ? "followObjectMove" : "followObject", state.lang);
+  if (state.follow === "saliency") return t(moving ? "followSaliencyMove" : "followSaliency", state.lang);
   return t("followCenter", state.lang);
 }
 
@@ -149,12 +168,12 @@ function applyCopy() {
     btn.classList.toggle("is-on", on);
     btn.setAttribute("aria-pressed", on ? "true" : "false");
   });
-  const map: [string, "placements" | "file" | "sizes" | "choose" | "fileHint" | "sampleImage" | "sampleVideo" | "safeHint" | "drag" | "download"][] = [
+  const map: [string, "placements" | "file" | "fileEither" | "sizes" | "choose" | "chooseEither" | "fileHint" | "fileHintVideo" | "sampleImage" | "sampleVideo" | "safeHint" | "drag" | "download"][] = [
     ["h-placements", "placements"],
-    ["h-file", "file"],
+    ["h-file", ENABLE_VIDEO ? "fileEither" : "file"],
     ["h-sizes", "sizes"],
-    ["choose", "choose"],
-    ["file-hint", "fileHint"],
+    ["choose", ENABLE_VIDEO ? "chooseEither" : "choose"],
+    ["file-hint", ENABLE_VIDEO ? "fileHintVideo" : "fileHint"],
     ["sample-image", "sampleImage"],
     ["sample-video", "sampleVideo"],
     ["safe-hint", "safeHint"],
@@ -174,30 +193,42 @@ function renderPicker() {
   const root = document.getElementById("platforms");
   if (!presets || !root) return;
   presets.innerHTML = PRESETS.map((preset) => {
-    const label = t(preset === "stories" ? "stories" : preset, state.lang);
-    return `<button type="button" class="check" data-preset="${preset}">${esc(label)}</button>`;
+    const label = t(preset, state.lang);
+    return `<button type="button" class="chip" data-preset="${preset}">${esc(label)}</button>`;
   }).join("");
 
   const chunks: string[] = [];
   for (const key of PLATFORM_ORDER) {
-    const items = CATALOG.filter((item) => item.platformKey === key);
+    const items = offered().filter((item) => item.platformKey === key);
     if (!items.length) continue;
-    chunks.push(`<section class="plat"><div class="plat-head"><h3>${esc(PLATFORM_NAME[key])}</h3><button type="button" class="check" data-plat="${key}">${esc(t("selectAll", state.lang))}</button></div><div class="plist">`);
-    for (const item of items) {
-      const media = item.media === "both" ? `${t("imageTag", state.lang)}/${t("videoTag", state.lang)}` : t(item.media === "image" ? "imageTag" : "videoTag", state.lang);
-      const verify = item.verifyBeforeUse ? `<span class="verify">${esc(t("verify", state.lang))}</span>` : "";
-      chunks.push(
-        `<div class="row"><button type="button" class="check" data-id="${esc(item.id)}">${esc(placementLabel(item, state.lang))}</button><span class="dim">${item.width}×${item.height} · ${esc(media)}</span><a href="${esc(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t("source", state.lang))}</a>${verify}</div>`,
-      );
-    }
-    chunks.push(`</div></section>`);
+    const open = state.open.has(key);
+    const rows = items
+      .map((item) => {
+        const media = ENABLE_VIDEO
+          ? `<span class="dim">${esc(item.media === "both" ? `${t("imageTag", state.lang)}/${t("videoTag", state.lang)}` : t(item.media === "image" ? "imageTag" : "videoTag", state.lang))}</span>`
+          : "";
+        const verify = item.verifyBeforeUse ? `<span class="verify">${esc(t("verify", state.lang))}</span>` : "";
+        return `<div class="row"><button type="button" class="check" data-id="${esc(item.id)}">${esc(placementLabel(item, state.lang))}</button><span class="dim">${item.width}×${item.height}</span>${media}<a href="${esc(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t("source", state.lang))}</a>${verify}</div>`;
+      })
+      .join("");
+    chunks.push(`<section class="plat">
+      <button type="button" class="plat-toggle${open ? " is-open" : ""}" data-toggle="${key}" aria-expanded="${open ? "true" : "false"}">
+        <span class="caret">${open ? "[-]" : "[+]"}</span>
+        <span class="plat-name">${esc(PLATFORM_NAME[key])}</span>
+        <span class="plat-count" data-count="${key}"></span>
+      </button>
+      <div class="plist"${open ? "" : " hidden"}>
+        <button type="button" class="check" data-plat="${key}">${esc(t("selectAll", state.lang))}</button>
+        ${rows}
+      </div>
+    </section>`);
   }
   root.innerHTML = chunks.join("");
   syncChecks();
 }
 
 function syncChecks() {
-  const media = kind();
+  const media = ENABLE_VIDEO ? (state.asset?.kind ?? null) : "image";
   document.querySelectorAll<HTMLButtonElement>("[data-id]").forEach((btn) => {
     const id = btn.dataset.id ?? "";
     const on = state.selected.has(id);
@@ -208,24 +239,36 @@ function syncChecks() {
   });
   for (const key of PLATFORM_ORDER) {
     const btn = document.querySelector<HTMLButtonElement>(`[data-plat="${key}"]`);
-    if (!btn) continue;
-    const items = CATALOG.filter((item) => item.platformKey === key && itemMatchesKind(item, media));
-    const all = items.length > 0 && items.every((item) => state.selected.has(item.id));
-    btn.classList.toggle("is-on", all);
-    btn.setAttribute("aria-pressed", all ? "true" : "false");
+    const items = selectable().filter((item) => item.platformKey === key);
+    if (btn) {
+      const all = items.length > 0 && items.every((item) => state.selected.has(item.id));
+      btn.classList.toggle("is-on", all);
+      btn.setAttribute("aria-pressed", all ? "true" : "false");
+    }
+    const count = document.querySelector<HTMLElement>(`[data-count="${key}"]`);
+    if (count) {
+      const n = selectedSizes(key);
+      count.textContent = t("picked", state.lang, { n });
+      count.classList.toggle("is-on", n > 0);
+    }
   }
+  const chosen = selectable().filter((item) => state.selected.has(item.id)).map((item) => item.id);
   for (const preset of PRESETS) {
     const btn = document.querySelector<HTMLButtonElement>(`[data-preset="${preset}"]`);
     if (!btn) continue;
-    const ids = CATALOG.filter((item) => matchesPreset(item, preset)).map((item) => item.id);
-    const same = ids.length === state.selected.size && ids.every((id) => state.selected.has(id));
+    const ids = selectable().filter((item) => matchesPreset(item, preset)).map((item) => item.id);
+    const same = ids.length > 0 && ids.length === chosen.length && ids.every((id) => state.selected.has(id));
     btn.classList.toggle("is-on", same);
     btn.setAttribute("aria-pressed", same ? "true" : "false");
   }
   const dim = document.getElementById("dim-hint");
   if (dim) {
-    dim.hidden = !media;
-    dim.textContent = media === "image" ? t("dimVideo", state.lang) : media === "video" ? t("dimImage", state.lang) : "";
+    if (!ENABLE_VIDEO || !state.asset) {
+      dim.hidden = true;
+    } else {
+      dim.hidden = false;
+      dim.textContent = state.asset.kind === "image" ? t("dimVideo", state.lang) : t("dimImage", state.lang);
+    }
   }
 }
 
@@ -267,15 +310,16 @@ function renderResults() {
   if (!list || !grid || !count || !safeRow || !need) return;
 
   const gs = groups();
-  count.textContent = t("sizeCount", state.lang, { n: gs.length });
   if (!gs.length) {
-    list.innerHTML = `<p class="hint">${esc(t("emptySizes", state.lang))}</p>`;
+    count.textContent = t("emptySizes", state.lang);
+    list.innerHTML = "";
     grid.innerHTML = "";
     safeRow.innerHTML = "";
     need.hidden = true;
     syncExport();
     return;
   }
+  count.textContent = t("sizeCount", state.lang, { n: gs.length });
 
   list.innerHTML = `<ul class="sizelist">${gs
     .map((group) => {
@@ -404,7 +448,7 @@ function ensureLoop() {
 function fileKind(file: File): "image" | "video" | null {
   const name = file.name.toLowerCase();
   if (file.type.startsWith("image/") || /\.(jpe?g|png|webp)$/.test(name)) return "image";
-  if (file.type.startsWith("video/") || /\.(mp4|mov|webm|m4v)$/.test(name)) return "video";
+  if (ENABLE_VIDEO && (file.type.startsWith("video/") || /\.(mp4|mov|webm|m4v)$/.test(name))) return "video";
   return null;
 }
 
@@ -719,7 +763,8 @@ async function doExport() {
       lines.push(manifestLine(group, name));
       await yieldUi();
     }
-    if (videos.length) {
+    if (ENABLE_VIDEO && videos.length) {
+      const { exportVideos } = await import("./export/video");
       const jobs = videos.map((group) => {
         const name = uniqueName(outputFilename(group, "mp4"), used);
         used.add(name);
@@ -815,10 +860,10 @@ function mount() {
       <h2 id="h-file"></h2>
       <div class="go-row">
         <button type="button" class="primary" id="choose"></button>
-        <input id="file" type="file" hidden accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,.jpg,.jpeg,.png,.webp,.mp4,.mov,.webm,.m4v">
+        <input id="file" type="file" hidden accept="${ACCEPT}">
       </div>
       <p class="hint" id="file-hint"></p>
-      <p class="samples"><button type="button" class="textlink" id="sample-image"></button><button type="button" class="textlink" id="sample-video"></button></p>
+      <p class="samples"><button type="button" class="textlink" id="sample-image"></button>${ENABLE_VIDEO ? `<button type="button" class="textlink" id="sample-video"></button>` : ""}</p>
       <p class="hint" id="file-meta"></p>
     </section>
     <section class="block">
@@ -862,7 +907,7 @@ function mount() {
     const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-preset]");
     if (!btn?.dataset.preset) return;
     const preset = btn.dataset.preset as Preset;
-    state.selected = new Set(CATALOG.filter((item) => matchesPreset(item, preset)).map((item) => item.id));
+    state.selected = new Set(selectable().filter((item) => matchesPreset(item, preset)).map((item) => item.id));
     syncChecks();
     renderResults();
   });
@@ -870,9 +915,23 @@ function mount() {
   document.getElementById("platforms")?.addEventListener("click", (event) => {
     const target = event.target as HTMLElement;
     if (target.closest("a")) return;
+    const toggle = target.closest<HTMLButtonElement>("[data-toggle]");
+    if (toggle?.dataset.toggle && !target.closest("[data-id]") && !target.closest("[data-plat]")) {
+      const key = toggle.dataset.toggle;
+      if (state.open.has(key)) state.open.delete(key);
+      else state.open.add(key);
+      const open = state.open.has(key);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.classList.toggle("is-open", open);
+      const caret = toggle.querySelector(".caret");
+      if (caret) caret.textContent = open ? "[-]" : "[+]";
+      const list = toggle.parentElement?.querySelector<HTMLElement>(".plist");
+      if (list) list.hidden = !open;
+      return;
+    }
     const plat = target.closest<HTMLButtonElement>("[data-plat]");
     if (plat?.dataset.plat) {
-      const items = CATALOG.filter((item) => item.platformKey === plat.dataset.plat && itemMatchesKind(item, kind()));
+      const items = selectable().filter((item) => item.platformKey === plat.dataset.plat);
       const allOn = items.every((item) => state.selected.has(item.id));
       for (const item of items) {
         if (allOn) state.selected.delete(item.id);
@@ -1006,5 +1065,6 @@ async function fetchSample(path: string, name: string, type: string) {
 export function start() {
   const saved = document.documentElement.dataset.lang;
   state.lang = saved === "zh" ? "zh" : "en";
+  if (!ENABLE_VIDEO) document.getElementById("player")?.setAttribute("hidden", "");
   mount();
 }

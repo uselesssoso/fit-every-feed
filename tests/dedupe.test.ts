@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { CATALOG } from "../src/spec/catalog";
+import { CATALOG, itemsForProduct } from "../src/spec/catalog";
+import { ENABLE_VIDEO } from "../src/flags";
 import { dedupe, matchesPreset } from "../src/spec/dedupe";
 import { outputFilename } from "../src/spec/filename";
 import { ZH_PLACEMENT } from "../src/i18n";
@@ -52,6 +53,14 @@ describe("catalog decisions", () => {
     const snap = CATALOG.find((i) => i.platformKey === "snapchat" && i.media === "video");
     expect(snap?.safe?.bottom).toBeCloseTo(0.35);
     expect(snap?.safe?.blocks[0]).toMatchObject({ x: 0.85, y: 0.55, w: 0.15, h: 0.45 });
+  });
+
+  it("hides video-only placements while video is postponed", () => {
+    expect(ENABLE_VIDEO).toBe(false);
+    const offered = itemsForProduct(false);
+    expect(offered.some((item) => item.media === "video")).toBe(false);
+    expect(offered.some((item) => item.placement === "Instagram Stories" && item.media === "image")).toBe(true);
+    expect(offered.some((item) => item.media === "both")).toBe(true);
   });
 
   it("has a Chinese label for every placement", () => {

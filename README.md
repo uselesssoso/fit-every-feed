@@ -1,8 +1,8 @@
 # fit-every-feed
 
-One asset in, every ad size out.
+One image in, every ad size out.
 
-A marketer drops in one image or video and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded.
+A marketer drops in one image and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded. Video is postponed: the encode path is still in the repo, behind `ENABLE_VIDEO` in `src/flags.ts`, and it is not shown.
 
 ## Run
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-`npm install` copies the MediaPipe wasm into `public/mediapipe`. Face and object models already live in `public/models` and are loaded from the same origin. Open the dev server, pick placements, and upload a file — or use the sample image and sample video.
+`npm install` copies the MediaPipe wasm into `public/mediapipe`. Face and object models already live in `public/models` and are loaded from the same origin. Open the dev server, pick placements, and upload a JPG, PNG, or WebP — or use the sample image.
 
 ```bash
 npm test
@@ -20,16 +20,16 @@ npm run build
 
 ## What it does
 
-- Eight platforms, from the spec table in `src/data/ad_specs.json` (checked 2026-10-04): Google Ads, YouTube, Meta, TikTok, X, LinkedIn, Pinterest, Snapchat.
-- Placements are grouped by platform, with select-all and presets (all, vertical, square, landscape, 9:16).
+- Eight platforms, from the spec table in `src/data/ad_specs.json` (checked 2026-10-04): Google Ads, YouTube, Meta, TikTok, X, LinkedIn, Pinterest, Snapchat. Video-only placements are hidden until `ENABLE_VIDEO` is turned on. A placement that accepts a still is listed with its image spec.
+- Platforms start collapsed, with nothing selected. Each row shows the platform and how many sizes are picked. Quick picks cover 9:16 stories and reels, feed squares, vertical, landscape, and all.
 - Outputs are de-duplicated by exact pixel size. One file can cover several placements; the grid and `manifest.txt` say which. `1200×628` and `800×418` stay separate, because 1.911 and 1.914 are not the same crop.
-- Images (JPG, PNG, WebP) are drawn to a canvas. Video (MP4, MOV, WebM) is cropped with a moving window and encoded to H.264 MP4 in a worker, then zipped.
-- Faces and people are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it follows the busiest part of the frame, then the center.
-- Video is sampled (about four times a second, capped at 160 samples) and the crop eases with a damped spring, so it does not jitter. Drag and scroll on a preview pan and zoom; on video that offset rides along the tracked path.
-- Safe zones can be drawn per platform. The crop tries to keep the subject out of the zones you leave on.
-- A size that breaks duration, minimum resolution, file size, or format is marked in red with a plain reason. It is still in the zip.
+- JPG, PNG, and WebP are drawn to a canvas and zipped. JPEG quality steps down to meet the strictest file-size limit on that size.
+- Faces, then people, are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it uses the busiest part of the frame, then the center.
+- Drag and scroll on a preview pan and zoom.
+- Safe zones can be drawn per platform. The crop shifts to keep the subject out of them, and only zooms in when a shift is not enough.
+- A size that breaks minimum resolution, file size, or format is marked in red with a plain reason. It is still in the zip.
 
-Filenames look like `meta_ig_reels_1080x1920.mp4`. When several Meta Reels share a size, the file is `meta_reels_1440x2560.jpg`. A size shared across platforms is just `1920x1080.mp4`.
+Filenames look like `meta_ig_stories_1440x2560.jpg`. When several Meta stories share a size, the file is `meta_stories_1440x2560.jpg`. A size shared across platforms is just `1080x1080.jpg`.
 
 ## Privacy
 
@@ -37,16 +37,13 @@ Nothing about the asset leaves the machine. Decoding, detection, cropping, encod
 
 ## Limits
 
-Built for a 1080p clip of about 30–60 seconds on a normal laptop.
+- Detection runs on a 768-pixel-wide frame. A wide 1080p photo cannot fill a tall minimum such as 720×1280 without upscaling, and that is flagged.
+- JPEG quality will not go below 0.5. If the platform cap is still smaller than that, the file is flagged and still zipped.
+- Several large stills are held in memory until the zip is built.
 
-- Tracking looks at up to 160 frames, so a longer clip is followed more coarsely.
-- Export is 30 fps H.264, one size at a time, so the tab stays usable. Several long vertical sizes will take a while and hold the encoded files in memory until the zip is built.
-- Chrome (or another browser with WebCodecs) is required for video export. If a codec will not decode, the export says so.
-- Audio is kept when the browser can decode it, and re-encoded as AAC.
-- 4K sources work, but detection is done on a 768-pixel-wide frame and the full-resolution encode is slower.
-- WebP and odd containers are fine as input. The file you download is JPG, PNG, or MP4.
+Video, when `ENABLE_VIDEO` is turned on, samples up to 160 frames, eases the crop, and exports 30 fps H.264 in a worker. That path needs WebCodecs. It is off in this build, including in the interface.
 
-The sample clip is a Pexels video of a person walking (Miriam Alonso), scaled to 1080p. The sample image is one frame of it.
+The sample image is one frame of a Pexels clip of a person walking (Miriam Alonso).
 
 ## Spec decisions
 

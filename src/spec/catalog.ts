@@ -185,6 +185,12 @@ export function buildCatalog(rows: SpecRow[]): CatalogItem[] {
 
 export const CATALOG: CatalogItem[] = buildCatalog(rawJson as SpecRow[]);
 
+/** Video-only rows stay in the catalog, and out of the product, until video ships. */
+export function itemsForProduct(enableVideo: boolean): CatalogItem[] {
+  if (enableVideo) return CATALOG;
+  return CATALOG.filter((item) => item.media !== "video");
+}
+
 export function itemMatchesKind(item: CatalogItem, kind: "image" | "video" | null): boolean {
   if (!kind) return true;
   return item.media === "both" || item.media === kind;
