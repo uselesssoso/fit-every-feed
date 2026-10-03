@@ -1,0 +1,2611 @@
+[
+  {
+    "platform": "Google Ads",
+    "placement": "Responsive Display Ads – Horizontal image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 628,
+    "aspect_ratios": [
+      "1.91:1"
+    ],
+    "min_width": 600,
+    "min_height": 314,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Required. 1-15 images (rec 5). Max 5120 KB. Formats per troubleshooting note on RDA best-practices page. Note: Google says Display campaigns are moving into Demand Gen (migration tool from June 2026).",
+    "source_url": "https://support.google.com/google-ads/answer/17090561?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/7005917?hl=en",
+      "https://support.google.com/google-ads/answer/9823397?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Responsive Display Ads – Square image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 300,
+    "min_height": 300,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Required. 1-15 images. Max 5120 KB.",
+    "source_url": "https://support.google.com/google-ads/answer/7005917?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17090561?hl=en",
+      "https://support.google.com/google-ads/answer/9823397?hl=en"
+    ],
+    "conflicts": "RDA spec page (17090561) recommends 600x600; 'Create a responsive display ad' (7005917) and best-practices guide (9823397) recommend 1200x1200. Both share min 300x300.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Responsive Display Ads – Vertical image",
+    "media_type": "image",
+    "width": 900,
+    "height": 1600,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 600,
+    "min_height": 1067,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Optional (0-15 images). Only listed on the RDA best-practices guide; not listed on the RDA spec page 17090561.",
+    "source_url": "https://support.google.com/google-ads/answer/9823397?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": "Vertical 9:16 asset absent from RDA spec page 17090561.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Responsive Display Ads – Video (YouTube-linked)",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "16:9",
+      "1:1",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": null,
+    "formats": [],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Optional, 1-5 videos per ratio (rec 2). Length 'Any', preferred 30s. Video is added as a YouTube link, so YouTube upload specs apply (see YouTube rows). Pixel size not stated on RDA page.",
+    "source_url": "https://support.google.com/google-ads/answer/17090561?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/7005917?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height",
+      "min_width",
+      "min_height",
+      "max_file_mb",
+      "min_duration_s",
+      "max_duration_s",
+      "safe_zone",
+      "bitrate_fps",
+      "formats"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Horizontal image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 628,
+    "aspect_ratios": [
+      "1.91:1"
+    ],
+    "min_width": 600,
+    "min_height": 314,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Required. Max 5 MB, JPG/PNG. Up to 20 image assets per ad.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17091672?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Square image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 300,
+    "min_height": 300,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Required. Max 5 MB, JPG/PNG. Up to 20 image assets per ad.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17091672?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Vertical 4:5 image",
+    "media_type": "image",
+    "width": 960,
+    "height": 1200,
+    "aspect_ratios": [
+      "4:5"
+    ],
+    "min_width": 480,
+    "min_height": 600,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Optional. Max 5 MB, JPG/PNG. Up to 20 image assets per ad.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17091672?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Vertical 9:16 image (YouTube Shorts)",
+    "media_type": "image",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 600,
+    "min_height": 1067,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 15.0,
+      "bottom": 35.0,
+      "left": 4.44,
+      "right": 17.78
+    },
+    "notes": "Optional; recommended for YouTube Shorts. Google: 'safe zones for 9:16 images are similar to 9:16 videos' -> safe zone copied from YouTube vertical video template (measured from official PNG, see YouTube Shorts row). Max 5 MB, JPG/PNG. Up to 20 image assets per ad.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": "9:16 image listed on 13704860 but not in the summary table on 17091672.",
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Horizontal video",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9"
+    ],
+    "min_width": 1280,
+    "min_height": 720,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Video must be uploaded to YouTube (public/unlisted). Min 5 s; videos <10 s cannot serve on YouTube In-stream; >15 s recommended; summary page recommends 10-60 s. 1-5 videos per ad. Min resolution taken from YouTube 'all formats' spec (13547298).",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17141078?hl=en",
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Square video",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 480,
+    "min_height": 480,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Video must be uploaded to YouTube (public/unlisted). Min 5 s; videos <10 s cannot serve on YouTube In-stream; >15 s recommended; summary page recommends 10-60 s. 1-5 videos per ad. Min resolution taken from YouTube 'all formats' spec (13547298).",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17141078?hl=en",
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Vertical 4:5 video",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1350,
+    "aspect_ratios": [
+      "4:5"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Video must be uploaded to YouTube (public/unlisted). Min 5 s; videos <10 s cannot serve on YouTube In-stream; >15 s recommended; summary page recommends 10-60 s. 1-5 videos per ad. Min resolution taken from YouTube 'all formats' spec (13547298). Min resolution for 4:5 not stated.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17141078?hl=en",
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Demand Gen – Vertical 9:16 video (YouTube Shorts)",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 720,
+    "min_height": 1280,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 15.0,
+      "bottom": 35.0,
+      "left": 4.44,
+      "right": 17.78
+    },
+    "notes": "Video must be uploaded to YouTube (public/unlisted). Min 5 s; videos <10 s cannot serve on YouTube In-stream; >15 s recommended; summary page recommends 10-60 s. 1-5 videos per ad. Min resolution taken from YouTube 'all formats' spec (13547298). Safe zone from YouTube vertical template.",
+    "source_url": "https://support.google.com/google-ads/answer/13704860?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/17141078?hl=en",
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Horizontal image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 628,
+    "aspect_ratios": [
+      "1.91:1"
+    ],
+    "min_width": 600,
+    "min_height": 314,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 10.0,
+      "bottom": 10.0,
+      "left": 10.0,
+      "right": 10.0
+    },
+    "notes": "Required; rec 4+, up to 20. JPG/PNG, max 5 MB (5120 KB). Safe area: 'content needs to be in the center 80% of the image' (encoded here as 10% per edge; Google does not say whether 80% refers to each dimension).",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/14530211?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": "Google Ads API asset-requirements page lists GIF, JPG, PNG as supported; Help Center says JPG or PNG.",
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Square image",
+    "media_type": "image",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 300,
+    "min_height": 300,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 10.0,
+      "bottom": 10.0,
+      "left": 10.0,
+      "right": 10.0
+    },
+    "notes": "Required; rec 4+, up to 20. JPG/PNG, max 5 MB (5120 KB). Safe area: 'content needs to be in the center 80% of the image' (encoded here as 10% per edge; Google does not say whether 80% refers to each dimension).",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/14530211?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Vertical 4:5 image",
+    "media_type": "image",
+    "width": 960,
+    "height": 1200,
+    "aspect_ratios": [
+      "4:5"
+    ],
+    "min_width": 480,
+    "min_height": 600,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 10.0,
+      "bottom": 10.0,
+      "left": 10.0,
+      "right": 10.0
+    },
+    "notes": "Optional; rec 2+, up to 20. Help table gives no per-row file size for 4:5 but general note says max 5 MB; API page says 5120 KB. JPG/PNG, max 5 MB (5120 KB). Safe area: 'content needs to be in the center 80% of the image' (encoded here as 10% per edge; Google does not say whether 80% refers to each dimension).",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/14530211?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Horizontal video",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9"
+    ],
+    "min_width": 1280,
+    "min_height": 720,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 10,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "YouTube-hosted. ≥10 s. Up to 15 videos; upload one of each orientation to avoid auto-generated videos. Pixel size, min resolution, file size and formats from YouTube 'all formats' spec (13547298); PMax page states only ratio + length.",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Square video",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 480,
+    "min_height": 480,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 10,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "YouTube-hosted. ≥10 s. Up to 15 videos; upload one of each orientation to avoid auto-generated videos. Pixel size, min resolution, file size and formats from YouTube 'all formats' spec (13547298); PMax page states only ratio + length.",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Google Ads",
+    "placement": "Performance Max – Vertical video",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 720,
+    "min_height": 1280,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 10,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 15.0,
+      "bottom": 35.0,
+      "left": 4.44,
+      "right": 17.78
+    },
+    "notes": "YouTube-hosted. ≥10 s. Up to 15 videos; upload one of each orientation to avoid auto-generated videos. Pixel size, min resolution, file size and formats from YouTube 'all formats' spec (13547298); PMax page states only ratio + length. Safe zone from YouTube vertical template.",
+    "source_url": "https://support.google.com/google-ads/answer/17091269?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://developers.google.com/google-ads/api/performance-max/asset-requirements"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_duration_s"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Skippable in-stream",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:3",
+      "2:3",
+      "4:5"
+    ],
+    "min_width": 1280,
+    "min_height": 720,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Skippable after 5 s. No max length (<3 min recommended); Video reach campaign recommends 15 s. Min length not stated for this format (Demand Gen page: <10 s ineligible for in-stream). Video hosted on YouTube. Recommended HD 1920x1080 / 1080x1920 / 1080x1080; min 720p (1280x720, 720x1280, 480x480 sq); SD min 640x480 / 480x640 accepted but not recommended. Also accepts 4:3 (SD), 2:3, 4:5. File ≤256 GB. Audio-only files (MP3/WAV/PCM) not accepted. Safe zone for 16:9/1:1 only given as an official transparent PNG template (non-rectangular); not encoded.",
+    "source_url": "https://support.google.com/google-ads/answer/2375464?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://support.google.com/google-ads/answer/17091270?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_duration_s",
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Non-skippable in-stream",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:3",
+      "2:3",
+      "4:5"
+    ],
+    "min_width": 1280,
+    "min_height": 720,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 60,
+    "safe_zone": null,
+    "notes": "Max 60 s; comparison table says '15-60 seconds (depending on the campaign subtype)'. Min not stated. Video hosted on YouTube. Recommended HD 1920x1080 / 1080x1920 / 1080x1080; min 720p (1280x720, 720x1280, 480x480 sq); SD min 640x480 / 480x640 accepted but not recommended. Also accepts 4:3 (SD), 2:3, 4:5. File ≤256 GB. Audio-only files (MP3/WAV/PCM) not accepted. Safe zone for 16:9/1:1 only given as an official transparent PNG template (non-rectangular); not encoded.",
+    "source_url": "https://support.google.com/google-ads/answer/2375464?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": "Same page shows '15-60 seconds' in table and '60 seconds or shorter' in text; 15 s may be a subtype limit, not a minimum.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Bumper",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:3",
+      "2:3",
+      "4:5"
+    ],
+    "min_width": 1280,
+    "min_height": 720,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": 6,
+    "safe_zone": null,
+    "notes": "Non-skippable, 5-6 s (max 6 s, ≥5 s). Video reach campaign recommends 16:9 at 1920x1080, 6 s. Video hosted on YouTube. Recommended HD 1920x1080 / 1080x1920 / 1080x1080; min 720p (1280x720, 720x1280, 480x480 sq); SD min 640x480 / 480x640 accepted but not recommended. Also accepts 4:3 (SD), 2:3, 4:5. File ≤256 GB. Audio-only files (MP3/WAV/PCM) not accepted. Safe zone for 16:9/1:1 only given as an official transparent PNG template (non-rectangular); not encoded.",
+    "source_url": "https://support.google.com/google-ads/answer/2375464?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://support.google.com/google-ads/answer/17091270?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Shorts ads",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16",
+      "16:9",
+      "1:1"
+    ],
+    "min_width": 720,
+    "min_height": 1280,
+    "max_file_mb": 262144,
+    "formats": [
+      "MPG (MPEG-2/MPEG-4, recommended)",
+      "WMV",
+      "AVI",
+      "MOV",
+      "FLV",
+      "MPEG-1",
+      "MP4",
+      "MPEG-PS",
+      "3GPP",
+      "WebM",
+      "DNxHR",
+      "ProRes",
+      "CineForm",
+      "HEVC (H.265)"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 180,
+    "safe_zone": {
+      "top": 15.0,
+      "bottom": 35.0,
+      "left": 4.44,
+      "right": 17.78
+    },
+    "notes": "Vertical 9:16 recommended; horizontal served with blurred top/bottom. Up to 3 min, but only first 60 s plays in Shorts feed (overlay at 50 s); <60 s recommended; 6-60 s for Video Reach, 10-60 s for VAC/App/PMax. Safe zone NOT stated as numbers: values measured from Google's official transparent vertical template (1080x1920; transparent safe rect x48-888, y288-1248) linked on 13547298.",
+    "source_url": "https://support.google.com/google-ads/answer/16041697?hl=en",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "https://services.google.com/fh/files/misc/youtubesafezoneoverlay_vertical_final.png",
+      "https://support.google.com/google-ads/answer/17091270?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_duration_s"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Video thumbnail",
+    "media_type": "image",
+    "width": 1280,
+    "height": 720,
+    "aspect_ratios": [
+      "16:9"
+    ],
+    "min_width": 1280,
+    "min_height": 640,
+    "max_file_mb": 2,
+    "formats": [
+      "JPG",
+      "GIF",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Applies to all video ad types (<2 MB for videos, <10 MB for podcasts). Min stated as 1280x640 (that is 2:1, not 16:9 — as written by Google).",
+    "source_url": "https://support.google.com/google-ads/answer/17091270?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "YouTube (Google Ads)",
+    "placement": "Companion banner (desktop only)",
+    "media_type": "image",
+    "width": 300,
+    "height": 60,
+    "aspect_ratios": [
+      "5:1"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 0.15,
+    "formats": [
+      "JPG",
+      "GIF",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Desktop only. Max 150 KB.",
+    "source_url": "https://support.google.com/google-ads/answer/17091270?hl=en",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://support.google.com/google-ads/answer/13547298?hl=en"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Feed",
+    "media_type": "image",
+    "width": 1440,
+    "height": 1800,
+    "aspect_ratios": [
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 600,
+    "min_height": 750,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "4:5 recommended. Aspect ratio tolerance 3%. Min height 750 px applies to 4:5. Help Center 'recommended minimum' for FB Feed: 1080x1080 (1:1) or 1440x1800 (4:5). Safe zone not stated.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/facebook-feed",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Feed",
+    "media_type": "video",
+    "width": 1440,
+    "height": 1800,
+    "aspect_ratios": [
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 120,
+    "min_height": 120,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 14460,
+    "safe_zone": null,
+    "notes": "4:5 recommended; on desktop Feed, video shown 1:1 (may add side bars). Duration 1 s to 241 min. No edit lists/special boxes in container. Safe zone not stated.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/facebook-feed",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Feed",
+    "media_type": "image",
+    "width": 1440,
+    "height": 1800,
+    "aspect_ratios": [
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3",
+      "9:16"
+    ],
+    "min_width": 500,
+    "min_height": null,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "4:5 recommended for images. Ads Guide technical limits: min aspect 400x500 (4:5), max 191x100 (1.91:1), tolerance 1%. Safe zone not stated.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/instagram-feed",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": "Ads Guide limits IG Feed image ratio to 4:5…1.91:1, but the Help Center aspect-ratio table also lists 2:3 and 9:16 for Instagram Feed.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Feed",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3",
+      "9:16"
+    ],
+    "min_width": 250,
+    "min_height": null,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 3600,
+    "safe_zone": null,
+    "notes": "Ads Guide recommends 9:16 at 1080x1920 for IG Feed video (Help table: 9:16 recommended for videos). Duration 1 s-60 min. Tolerance 1%. Safe zone not stated.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/instagram-feed",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Stories",
+    "media_type": "image",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 500,
+    "min_height": null,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Shown 8 s. Leave ~14% top, 35% bottom, 6% each side free of key elements. Tolerance 1%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/facebook-story",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Stories",
+    "media_type": "video",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 250,
+    "min_height": null,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 180,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 20.0,
+      "left": null,
+      "right": null
+    },
+    "notes": "Duration 1 s-3 min; >15 s split into cards. Ads Guide video page says leave ~14% (250 px) top and 20% (340 px) bottom free; side margins not stated on this page. Tolerance 1%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/facebook-story",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": "FB Stories video page: 14% top / 20% bottom (and 250/340 px, which match a 1920-px-tall frame, not the recommended 2560); FB Stories image page and all Reels pages: 14% top / 35% bottom / 6% sides.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Stories",
+    "media_type": "image",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 500,
+    "min_height": null,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Image shown 5-16 s. Leave ~14% top, 35% bottom, 6% each side free. Tolerance 1%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Stories",
+    "media_type": "video",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "min_width": 250,
+    "min_height": null,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 3600,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Duration 1 s-60 min; ≥16 s may be split into up to 3 cards. Tolerance 1%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/instagram-story",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Reels",
+    "media_type": "image",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": 600,
+    "min_height": 600,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Tolerance 3%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/facebook-facebook-reels",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Reels",
+    "media_type": "video",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Video duration: 'No maximum limit'. Min duration and min resolution not stated on this page. No edit lists.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/facebook-facebook-reels",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s",
+      "max_duration_s"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Reels",
+    "media_type": "image",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": 500,
+    "min_height": null,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Tolerance 1%.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/instagram-reels",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Instagram Reels",
+    "media_type": "video",
+    "width": 1440,
+    "height": 2560,
+    "aspect_ratios": [
+      "9:16",
+      "1.91:1",
+      "16:9",
+      "1:1",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": 250,
+    "min_height": null,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": 0,
+    "max_duration_s": 900,
+    "safe_zone": {
+      "top": 14.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "Duration 0 s-15 min. Min width 250 px if <30 s, 500 px if ≥30 s. No licensed music, GIF, face/camera effects, product tags.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/instagram-reels",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_height"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Right Column (desktop)",
+    "media_type": "image",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1"
+    ],
+    "min_width": 254,
+    "min_height": 133,
+    "max_file_mb": null,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Desktop only. Ads Guide: 1:1, 'at least 1080x1080'; avoid text on image. Max file size not stated on the page.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/facebook-right-hand-column",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": "Ads Guide says ratio 1:1 at ≥1080x1080; Help Center aspect-ratio table marks 1.91:1 as recommended (1:1 also supported); Help Center minimum-pixel page says 1200x1200.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "max_file_mb",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Right Column (desktop)",
+    "media_type": "video",
+    "width": 1440,
+    "height": 1440,
+    "aspect_ratios": [
+      "1:1",
+      "4:5",
+      "1.91:1"
+    ],
+    "min_width": 120,
+    "min_height": 120,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 14460,
+    "safe_zone": null,
+    "notes": "Ads Guide: 1:1 (desktop or mobile) at 1440x1440, or 4:5 (mobile only) at 1440x1800. NOTE: page body text appears copied from Facebook Feed.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/facebook-right-hand-column",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": "Help Center aspect-ratio table marks 1.91:1 as recommended for right column images and videos; Ads Guide video page recommends 1:1/4:5.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Marketplace",
+    "media_type": "image",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1",
+      "16:9",
+      "9:16"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 30,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Ads Guide: 1:1, 'at least 1080x1080'. Min dimensions not stated in Ads Guide.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/image/facebook-marketplace",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254",
+      "https://www.facebook.com/business/help/469767027114079"
+    ],
+    "conflicts": "Help Center minimum-pixel page says 1200x1200 for Marketplace vs Ads Guide 1080x1080.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Meta",
+    "placement": "Facebook Marketplace",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1",
+      "16:9",
+      "9:16"
+    ],
+    "min_width": 120,
+    "min_height": 120,
+    "max_file_mb": 4096,
+    "formats": [
+      "MP4",
+      "MOV",
+      "GIF"
+    ],
+    "min_duration_s": 1,
+    "max_duration_s": 14460,
+    "safe_zone": null,
+    "notes": "Ads Guide: 1:1, at least 1080x1080. 1 s-241 min.",
+    "source_url": "https://www.facebook.com/business/ads-guide/update/video/facebook-marketplace",
+    "bitrate_fps": "H.264, square pixels, fixed frame rate, progressive scan, stereo AAC audio 128kbps+ (max bitrate/fps not stated)",
+    "secondary_sources": [
+      "https://www.facebook.com/business/help/682655495435254"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "TikTok",
+    "placement": "In-Feed (auction, Non-Spark) – vertical",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "9:16",
+      "16:9",
+      "1:1"
+    ],
+    "min_width": 540,
+    "min_height": 960,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4",
+      "MOV",
+      "MPEG",
+      "3GP",
+      "AVI"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 600,
+    "safe_zone": {
+      "top": 12.5,
+      "bottom": 34.38,
+      "left": 11.11,
+      "right": 11.11
+    },
+    "notes": "Recommended pixel size not stated (only minimums: 9:16 ≥540x960, 16:9 ≥960x540, 1:1 ≥640x640). Up to 10 min. Spark Ads (pull): mp4/mov, no duration restriction. Safe zone not stated in text; values measured from TikTok's official 'In-Feed Standard LTR' PNG template (720x1280 reference): top 160, bottom 440, left 80, right 80 px; additionally the right 200 px (27.78%) are blocked in the bottom 720 px (56.25%) for the icon column. Safe zone varies with caption length/add-ons.",
+    "source_url": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads?lang=en",
+    "bitrate_fps": "Bitrate ≥516 kbps (min); max/fps not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height",
+      "min_duration_s"
+    ]
+  },
+  {
+    "platform": "TikTok",
+    "placement": "TopView (reservation)",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 540,
+    "min_height": 960,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4",
+      "MOV",
+      "MPEG",
+      "3GP"
+    ],
+    "min_duration_s": 5,
+    "max_duration_s": 60,
+    "safe_zone": {
+      "top": 12.5,
+      "bottom": 34.38,
+      "left": 11.11,
+      "right": 11.11
+    },
+    "notes": "Non-Spark & Spark Push: 9:16 ≥540x960, 5-60 s (rec 9-15 s). Recommended pixel size not stated. Two safe-zone stages: initial 3-s open screen (top 160 / bottom 160 / sides 80 px on 720x1280) and in-feed stage (same as In-Feed: top 160, bottom 440, sides 80, right column 120+80 px in bottom 720 px). TikTok says in-feed safe zone is more restrictive, so in-feed values encoded. Values measured from official TopView safe-zone PNGs. No plain white in first 3 s.",
+    "source_url": "https://ads.tiktok.com/help/article/tiktok-reservation-topview?lang=en",
+    "bitrate_fps": "Bitrate ≥2,500 kbps (min); max/fps not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Image ad – standalone 1:1",
+    "media_type": "image",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 5,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "PNG/JPEG recommended; BMP/TIFF not accepted; GIF renders static. Max 5 MB. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": "Standalone image recommends 1200x1200 (1:1) / 1200x628 (1.91:1), while the expanded-ratio list on the same page gives 1080x1080 and 2064x1080.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Image ad – standalone 1.91:1",
+    "media_type": "image",
+    "width": 1200,
+    "height": 628,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 5,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Max 5 MB. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Image ad – website card 1.91:1",
+    "media_type": "image",
+    "width": 800,
+    "height": 418,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 5,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Also used for app-button & poll image ads. Headline ≤70 chars. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Image ad – website card 1:1",
+    "media_type": "image",
+    "width": 800,
+    "height": 800,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 5,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Video ad – standalone 1:1",
+    "media_type": "video",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 140,
+    "safe_zone": null,
+    "notes": "MP4/MOV, max 1 GB (keep <30 MB recommended). ≤15 s recommended, up to 2:20 (select advertisers up to 10 min). Loops if <60 s. Min duration not stated; min resolution for promoted video not stated (640x360 minimum is only stated for Amplify). Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Video ad – standalone 16:9",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 140,
+    "safe_zone": null,
+    "notes": "MP4/MOV, max 1 GB (keep <30 MB recommended). ≤15 s recommended, up to 2:20 (select advertisers up to 10 min). Loops if <60 s. Min duration not stated; min resolution for promoted video not stated (640x360 minimum is only stated for Amplify). Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Video ad – website card 16:9",
+    "media_type": "video",
+    "width": 800,
+    "height": 450,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 140,
+    "safe_zone": null,
+    "notes": "MP4/MOV, max 1 GB (keep <30 MB recommended). ≤15 s recommended, up to 2:20 (select advertisers up to 10 min). Loops if <60 s. Min duration not stated; min resolution for promoted video not stated (640x360 minimum is only stated for Amplify). Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Video ad – website card 1:1",
+    "media_type": "video",
+    "width": 800,
+    "height": 800,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 140,
+    "safe_zone": null,
+    "notes": "MP4/MOV, max 1 GB (keep <30 MB recommended). ≤15 s recommended, up to 2:20 (select advertisers up to 10 min). Loops if <60 s. Min duration not stated; min resolution for promoted video not stated (640x360 minimum is only stated for Amplify). Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Vertical Video ad (Immersive Media Viewer)",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16",
+      "4:5",
+      "2:3",
+      "1:1",
+      "1.91:1",
+      "16:9"
+    ],
+    "min_width": 720,
+    "min_height": 1280,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 140,
+    "safe_zone": null,
+    "notes": "9:16 recommended. Max resolution 1080x1920, min 720x1280. <15 s recommended, up to 2:20. File-size limit taken from general video-ad spec (1 GB). Safe zone not stated. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Max 60 fps; max bitrate 25 Mbps; target 5-10 Mbps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Carousel – image 1.91:1",
+    "media_type": "image",
+    "width": 800,
+    "height": 418,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": null,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2-6 slides; one aspect ratio per carousel (mixed media must match, e.g. 1:1 image + 1:1 video). Carousel section does not state file size; general Image Ad (5 MB) / Video Ad (1 GB) specs say they apply to 'any' image/video ad. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "max_file_mb",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Carousel – image 1:1",
+    "media_type": "image",
+    "width": 800,
+    "height": 800,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": null,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2-6 slides; one aspect ratio per carousel (mixed media must match, e.g. 1:1 image + 1:1 video). Carousel section does not state file size; general Image Ad (5 MB) / Video Ad (1 GB) specs say they apply to 'any' image/video ad. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "max_file_mb",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Carousel – video 16:9",
+    "media_type": "video",
+    "width": 800,
+    "height": 450,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": null,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2-6 slides; one aspect ratio per carousel (mixed media must match, e.g. 1:1 image + 1:1 video). Carousel section does not state file size; general Image Ad (5 MB) / Video Ad (1 GB) specs say they apply to 'any' image/video ad. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "max_file_mb",
+      "min_duration_s",
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "X (Twitter)",
+    "placement": "Carousel – video 1:1",
+    "media_type": "video",
+    "width": 800,
+    "height": 800,
+    "aspect_ratios": [
+      "1:1",
+      "1.91:1",
+      "16:9",
+      "9:16",
+      "4:5",
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": null,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2-6 slides; one aspect ratio per carousel (mixed media must match, e.g. 1:1 image + 1:1 video). Carousel section does not state file size; general Image Ad (5 MB) / Video Ad (1 GB) specs say they apply to 'any' image/video ad. Page also lists 'expanded aspect ratios' with sizes: 4:5 1440x1800, 2:3 1080x1620, 1:1 1080x1080, 1.91:1 2064x1080, 16:9 1920x1080, 9:16 1080x1920. Source page (business.x.com, now redirecting to help.x.com) returns HTTP 403 (Cloudflare) to automated fetch; content read from Wayback Machine snapshot of the official page dated 2026-09-27 08:11 UTC (2026-09-27 16:11 UTC+8).",
+    "source_url": "https://business.x.com/en/help/campaign-setup/creative-ad-specifications",
+    "bitrate_fps": "Bitrate 6,000-10,000k (rec 6,000k) @1080p; 5,000-8,000k (rec 5,000k) @720p; 29.97/30fps rec, up to 60fps; H.264 4:2:0; AAC LC",
+    "secondary_sources": [
+      "http://web.archive.org/web/20260927081108/https://business.x.com/en/help/campaign-setup/creative-ad-specifications"
+    ],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "max_file_mb",
+      "min_duration_s",
+      "max_duration_s",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Single image ad – horizontal",
+    "media_type": "image",
+    "width": 1200,
+    "height": 628,
+    "aspect_ratios": [
+      "1.91:1"
+    ],
+    "min_width": 640,
+    "min_height": 360,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG",
+      "GIF"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "1.91:1 recommended ratio. Max 7680x4320. JPG/PNG/GIF (animated ≤250 frames), max 5 MB. Images <401 px wide display as thumbnail. Vertical assets serve on mobile only. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/linkedin/answer/a426534",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Single image ad – square",
+    "media_type": "image",
+    "width": 1200,
+    "height": 1200,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 360,
+    "min_height": 360,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG",
+      "GIF"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "Max 4320x4320. JPG/PNG/GIF (animated ≤250 frames), max 5 MB. Images <401 px wide display as thumbnail. Vertical assets serve on mobile only. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/linkedin/answer/a426534",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Single image ad – vertical",
+    "media_type": "image",
+    "width": 720,
+    "height": 900,
+    "aspect_ratios": [
+      "4:5"
+    ],
+    "min_width": 360,
+    "min_height": 640,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG",
+      "GIF"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "4:5 recommended. Max 2430x4320. JPG/PNG/GIF (animated ≤250 frames), max 5 MB. Images <401 px wide display as thumbnail. Vertical assets serve on mobile only. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/linkedin/answer/a426534",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": "Vertical 4:5 row lists minimum 360x640 (a 9:16 size) and max 2430x4320 (~9:16) — inconsistent with 4:5; 4:5 minimum equivalent would be 360x450.",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Video ad – horizontal",
+    "media_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratios": [
+      "16:9"
+    ],
+    "min_width": 640,
+    "min_height": 360,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4"
+    ],
+    "min_duration_s": 3,
+    "max_duration_s": 1800,
+    "safe_zone": null,
+    "notes": "Also lists 1200x675 as recommended. Max 1920x1080. MP4, H.264 or VP8; AAC/MPEG4 audio <64 kHz; 75 KB-500 MB; 3 s-30 min (15-30 s recommended; in-stream up to 90 s). Captions SRT. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/lms/answer/a424737",
+    "bitrate_fps": "Frame rate <30 fps; bitrate not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Video ad – square",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": 360,
+    "min_height": 360,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4"
+    ],
+    "min_duration_s": 3,
+    "max_duration_s": 1800,
+    "safe_zone": null,
+    "notes": "Recommended size not stated; max 1920x1920. MP4, H.264 or VP8; AAC/MPEG4 audio <64 kHz; 75 KB-500 MB; 3 s-30 min (15-30 s recommended; in-stream up to 90 s). Captions SRT. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/lms/answer/a424737",
+    "bitrate_fps": "Frame rate <30 fps; bitrate not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Video ad – vertical 4:5",
+    "media_type": "video",
+    "width": 720,
+    "height": 900,
+    "aspect_ratios": [
+      "4:5"
+    ],
+    "min_width": 360,
+    "min_height": 450,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4"
+    ],
+    "min_duration_s": 3,
+    "max_duration_s": 1800,
+    "safe_zone": null,
+    "notes": "4:5 is the recommended ratio. Max 1080x1350. MP4, H.264 or VP8; AAC/MPEG4 audio <64 kHz; 75 KB-500 MB; 3 s-30 min (15-30 s recommended; in-stream up to 90 s). Captions SRT. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/lms/answer/a424737",
+    "bitrate_fps": "Frame rate <30 fps; bitrate not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Video ad – vertical 9:16",
+    "media_type": "video",
+    "width": 720,
+    "height": 1280,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 360,
+    "min_height": 640,
+    "max_file_mb": 500,
+    "formats": [
+      "MP4"
+    ],
+    "min_duration_s": 3,
+    "max_duration_s": 1800,
+    "safe_zone": null,
+    "notes": "Max 1080x1920. MP4, H.264 or VP8; AAC/MPEG4 audio <64 kHz; 75 KB-500 MB; 3 s-30 min (15-30 s recommended; in-stream up to 90 s). Captions SRT. Safe zone not stated.",
+    "source_url": "https://www.linkedin.com/help/lms/answer/a424737",
+    "bitrate_fps": "Frame rate <30 fps; bitrate not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "LinkedIn",
+    "placement": "Carousel image ad (per card)",
+    "media_type": "image",
+    "width": 1080,
+    "height": 1080,
+    "aspect_ratios": [
+      "1:1"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 10,
+    "formats": [
+      "JPG",
+      "PNG",
+      "GIF (non-animated)"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2-10 cards; max 4320x4320; images scaled to 312x312. Min size not stated. Page last updated ~10 months before check.",
+    "source_url": "https://www.linkedin.com/help/lms/answer/a427022",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Pinterest",
+    "placement": "Standard image ad",
+    "media_type": "image",
+    "width": 1000,
+    "height": 1500,
+    "aspect_ratios": [
+      "2:3"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 20,
+    "formats": [
+      "PNG",
+      "JPEG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": null,
+    "notes": "2:3 recommended (1000x1500); taller than 2:3 may be cut off. Max 20 MB desktop / 32 MB in-app. Uploads converted to 8-bit sRGB JPEG; PNG sRGB recommended. Min size & safe zone not stated.",
+    "source_url": "https://help.pinterest.com/en/business/article/pinterest-product-specs",
+    "bitrate_fps": null,
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Pinterest",
+    "placement": "Standard-width video ad",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "1:1",
+      "2:3",
+      "4:5",
+      "9:16"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 2048,
+    "formats": [
+      "MP4",
+      "MOV",
+      "M4V"
+    ],
+    "min_duration_s": 4,
+    "max_duration_s": 900,
+    "safe_zone": null,
+    "notes": "H.264/H.265. Allowed ratio range: shorter than 1:2 and taller than 1.91:1; 1:1 or vertical (2:3, 4:5, 9:16) recommended. 4 s-15 min (6-15 s recommended). Pixel size, min resolution, safe zone not stated.",
+    "source_url": "https://help.pinterest.com/en/business/article/pinterest-product-specs",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height",
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Pinterest",
+    "placement": "Max-width video ad",
+    "media_type": "video",
+    "width": null,
+    "height": null,
+    "aspect_ratios": [
+      "1:1",
+      "16:9"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 2048,
+    "formats": [
+      "MP4",
+      "MOV",
+      "M4V"
+    ],
+    "min_duration_s": 4,
+    "max_duration_s": 900,
+    "safe_zone": null,
+    "notes": "Paid only; spans full mobile feed width. 'Cannot exceed the height of a 1:1 aspect ratio' (i.e., 1:1 or wider; 16:9 listed here as an example of a wider ratio, Pinterest does not name it for this format). H.264/H.265. 4 s-15 min.",
+    "source_url": "https://help.pinterest.com/en/business/article/pinterest-product-specs",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "width",
+      "height",
+      "min_width",
+      "min_height",
+      "safe_zone"
+    ]
+  },
+  {
+    "platform": "Pinterest",
+    "placement": "Idea ad (formerly Idea Pin)",
+    "media_type": "image/video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 100,
+    "formats": [
+      "BMP",
+      "JPEG",
+      "PNG",
+      "TIFF",
+      "WEBP",
+      "MP4",
+      "M4V",
+      "MOV"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": 300,
+    "safe_zone": {
+      "top": 14.06,
+      "bottom": 22.92,
+      "left": 6.02,
+      "right": 18.06
+    },
+    "notes": "9:16 recommended for full-bleed (1080x1920), 'no restrictions' on ratio. Video max 5 min; video upload iOS/Android only; max file Web 100 MB, Android/iOS 2 GB (1 GB recommended). Safe zone stated in px: top 270, left 65, right 195, bottom 440 — % computed against the 1080x1920 canvas Pinterest recommends on the same page.",
+    "source_url": "https://help.pinterest.com/en/business/article/pinterest-product-specs",
+    "bitrate_fps": "not stated",
+    "secondary_sources": [],
+    "conflicts": null,
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height",
+      "min_duration_s"
+    ]
+  },
+  {
+    "platform": "Snapchat",
+    "placement": "Single Image ad",
+    "media_type": "image",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": 720,
+    "min_height": 1280,
+    "max_file_mb": 5,
+    "formats": [
+      "JPG",
+      "PNG"
+    ],
+    "min_duration_s": null,
+    "max_duration_s": null,
+    "safe_zone": {
+      "top": 10.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "9:16 required; image converted into a 5-second video. Image upload via Ads Manager only. Safe zone from official 'Safe Zones for Ads on Snapchat' diagram: 10% top, 35% bottom, 6% each side, plus right-side 15% column blocked in the bottom 45%.",
+    "source_url": "https://businesshelp.snapchat.com/s/article/top-snap-specs?language=en_US",
+    "bitrate_fps": null,
+    "secondary_sources": [
+      "https://businesshelp.snapchat.com/s/article/safe-zones?language=en_US",
+      "https://businesshelp.snapchat.com/s/article/snap-ads-practices?language=en_US"
+    ],
+    "conflicts": "Best-practices page says keep top 150 px and bottom 330 px clear (=7.8% / 17.2% of 1920) — less conservative than the Safe Zones diagram (10% / 35%).",
+    "date_checked": "2026-10-04",
+    "not_stated": []
+  },
+  {
+    "platform": "Snapchat",
+    "placement": "Single Video ad",
+    "media_type": "video",
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratios": [
+      "9:16"
+    ],
+    "min_width": null,
+    "min_height": null,
+    "max_file_mb": 1024,
+    "formats": [
+      "MP4",
+      "MOV"
+    ],
+    "min_duration_s": 3,
+    "max_duration_s": 1800,
+    "safe_zone": {
+      "top": 10.0,
+      "bottom": 35.0,
+      "left": 6.0,
+      "right": 6.0
+    },
+    "notes": "H.264; SAR/DAR 9:16, PAR 1:1. 3 s-30 min (<3 s looped to 3 s). Dynamic ads ≤6 MB. Audio: 2-ch, -16 LUFS, PCM/AAC, ≥192 kbps, 16/24-bit. Min video resolution not explicitly stated (720x1280 stated under image requirements). Safe zone from official 'Safe Zones for Ads on Snapchat' diagram: 10% top, 35% bottom, 6% each side, plus right-side 15% column blocked in the bottom 45%.",
+    "source_url": "https://businesshelp.snapchat.com/s/article/top-snap-specs?language=en_US",
+    "bitrate_fps": "Audio ≥192 kbps; video bitrate/fps not stated",
+    "secondary_sources": [
+      "https://businesshelp.snapchat.com/s/article/safe-zones?language=en_US",
+      "https://businesshelp.snapchat.com/s/article/snap-ads-practices?language=en_US"
+    ],
+    "conflicts": "Best-practices page says keep top 150 px and bottom 330 px clear (=7.8% / 17.2% of 1920) — less conservative than the Safe Zones diagram (10% / 35%).",
+    "date_checked": "2026-10-04",
+    "not_stated": [
+      "min_width",
+      "min_height"
+    ]
+  }
+]
