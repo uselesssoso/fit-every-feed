@@ -494,43 +494,83 @@ async function loadFile(file: File) {
   syncExport();
   const url = URL.createObjectURL(file);
 
-  if (media === "image") {
-    const image = await createImageBitmap(file, { imageOrientation: "from-image" });
-    if (token !== state.token) {
-      image.close();
+  try {
+    if (media === "image") {
+      const image = await createImageBitmap(file, { imageOrientation: "from-image" });
+      if (token !== state.token) {
+        image.close();
+        return;
+      }
+      state.asset = { kind: "image", width: image.width, height: image.height, duration: 0, bytes: file.size, image, video: null, poster: null, url };
+      syncChecks();
+      renderResults();
+      fileMeta();
+      setStatus(t("finding", state.lang));
+      await trackStill(image, image.width, image.height, token);
       return;
     }
-    state.asset = { kind: "image", width: image.width, height: image.height, duration: 0, bytes: file.size, image, video: null, poster: null, url };
+
+    player.src = url;
+    await once(player, "loadedmetadata");
+    if (token !== state.token) return;
+    const poster = await videoFrame(player);
+    state.asset = {
+      kind: "video",
+      width: player.videoWidth,
+      height: player.videoHeight,
+      duration: player.duration,
+      bytes: file.size,
+      image: null,
+      video: player,
+      poster,
+      url,
+    };
     syncChecks();
     renderResults();
     fileMeta();
-    setStatus(t("finding", state.lang));
-    await trackStill(image, image.width, image.height, token);
-    return;
+    paint();
+    ensureLoop();
+    await trackClip(player, token);
+  } catch (err) {
+    if (token !== state.token) return;
+    state.detecting = false;
+    syncExport();
+    setStatus(t("exportFail", state.lang, { msg: err instanceof Error ? err.message : String(err) }));
   }
+}
 
-  player.src = url;
-  await once(player, "loadedmetadata");
-  if (token !== state.token) return;
-  await seekTo(player, 0);
-  const poster = await createImageBitmap(player);
-  state.asset = {
-    kind: "video",
-    width: player.videoWidth,
-    height: player.videoHeight,
-    duration: player.duration,
-    bytes: file.size,
-    image: null,
-    video: player,
-    poster,
-    url,
-  };
-  syncChecks();
-  renderResults();
-  fileMeta();
-  paint();
-  ensureLoop();
-  await trackClip(player, token);
+function waitForFrame(video: HTMLVideoElement): Promise<void> {
+  if (video.readyState >= 2) return Promise.resolve();
+  return new Promise((resolve) => {
+    const finish = () => {
+      window.clearTimeout(timer);
+      video.removeEventListener("loadeddata", finish);
+      resolve();
+    };
+    const timer = window.setTimeout(finish, 4000);
+    video.addEventListener("loadeddata", finish);
+  });
+}
+
+/** A paused, not-yet-painted video throws from createImageBitmap. Play it once so a frame exists. */
+async function videoFrame(video: HTMLVideoElement): Promise<ImageBitmap> {
+  try {
+    await video.play();
+  } catch {
+    /* autoplay can be blocked; loadeddata may still arrive */
+  }
+  await waitForFrame(video);
+  video.pause();
+  await seekTo(video, 0);
+  try {
+    return await createImageBitmap(video);
+  } catch {
+    await video.play();
+    await new Promise((resolve) => window.setTimeout(resolve, 80));
+    video.pause();
+    await seekTo(video, 0);
+    return await createImageBitmap(video);
+  }
 }
 
 async function trackStill(image: ImageBitmap, srcW: number, srcH: number, token: number) {

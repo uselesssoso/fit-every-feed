@@ -247,11 +247,11 @@ html[lang="zh-Hans"] .hint { font-style: normal; }
 
 .player {
   position: fixed;
-  left: 0;
+  left: -240px;
   top: 0;
   width: 160px;
   height: 90px;
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 
