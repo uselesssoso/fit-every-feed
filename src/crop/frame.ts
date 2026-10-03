@@ -61,37 +61,18 @@ function clamp(v: number, a: number, b: number): number {
   return Math.max(a, Math.min(b, v));
 }
 
-/** Largest crop of the target aspect that can still put (cx, cy) on the anchor. */
-function maxSizeToHitAnchor(
-  srcW: number,
-  srcH: number,
-  aspect: number,
-  cx: number,
-  cy: number,
-  anchor: { x: number; y: number },
-): { w: number; h: number } {
-  const eps = 1e-3;
-  let maxW = Infinity;
-  let maxH = Infinity;
-  if (anchor.x > eps) maxW = Math.min(maxW, cx / anchor.x);
-  if (anchor.x < 1 - eps) maxW = Math.min(maxW, (srcW - cx) / (1 - anchor.x));
-  if (anchor.y > eps) maxH = Math.min(maxH, cy / anchor.y);
-  if (anchor.y < 1 - eps) maxH = Math.min(maxH, (srcH - cy) / (1 - anchor.y));
-
-  let w = maxW;
-  let h = w / aspect;
-  if (h > maxH) {
-    h = maxH;
-    w = h * aspect;
-  }
-  if (!Number.isFinite(w) || w <= 1) return { w: Math.min(srcW, srcH * aspect), h: Math.min(srcH, srcW / aspect) };
-  return { w, h };
+function inSafe(fx: number, fy: number, safe: SafeFrac | null): boolean {
+  if (!safe) return true;
+  const pad = 0.008;
+  if (fx < safe.left + pad || fx > 1 - safe.right - pad || fy < safe.top + pad || fy > 1 - safe.bottom - pad) return false;
+  return !safe.blocks.some((b) => fx > b.x - pad && fx < b.x + b.w + pad && fy > b.y - pad && fy < b.y + b.h + pad);
 }
 
 /**
  * Cover-crop of `targetW/targetH` inside the source.
- * The subject is placed on the safe-area centroid when a safe zone is set,
- * zooming in only as far as that placement (or a comfortable subject size) requires.
+ * The window shifts toward the safe-area centroid. It zooms in only when a
+ * shift still leaves the subject under a covered band, or when the subject
+ * is small enough to fill the safe area.
  */
 export function frameCrop(input: FrameInput): CropRect {
   const { srcW, srcH, targetW, targetH } = input;
@@ -123,14 +104,6 @@ export function frameCrop(input: FrameInput): CropRect {
     }
   }
 
-  if (subject) {
-    const limit = maxSizeToHitAnchor(srcW, srcH, aspect, subject.cx, subject.cy, anchor);
-    if (limit.w < cw) {
-      cw = limit.w;
-      ch = limit.h;
-    }
-  }
-
   const userZoom = clamp(input.userZoom ?? 1, 1, 4);
   cw /= userZoom;
   ch /= userZoom;
@@ -151,9 +124,30 @@ export function frameCrop(input: FrameInput): CropRect {
 
   const focusX = subject ? subject.cx : srcW / 2;
   const focusY = subject ? subject.cy : srcH / 2;
-  let x = focusX - anchor.x * cw + (input.userDx ?? 0) * cw;
-  let y = focusY - anchor.y * ch + (input.userDy ?? 0) * ch;
-  x = clamp(x, 0, Math.max(0, srcW - cw));
-  y = clamp(y, 0, Math.max(0, srcH - ch));
-  return { x, y, w: cw, h: ch };
+  const dx = input.userDx ?? 0;
+  const dy = input.userDy ?? 0;
+  const place = (w: number, h: number, pan: boolean) => {
+    let x = focusX - anchor.x * w + (pan ? dx * w : 0);
+    let y = focusY - anchor.y * h + (pan ? dy * h : 0);
+    x = clamp(x, 0, Math.max(0, srcW - w));
+    y = clamp(y, 0, Math.max(0, srcH - h));
+    const fx = w > 1 ? (focusX - x) / w : anchor.x;
+    const fy = h > 1 ? (focusY - y) / h : anchor.y;
+    return { x, y, w, h, fx, fy };
+  };
+
+  let chosen = place(cw, ch, false);
+  if (subject && input.safe && !inSafe(chosen.fx, chosen.fy, input.safe)) {
+    let lo = Math.min(floorW, cw);
+    let hi = cw;
+    for (let i = 0; i < 16; i++) {
+      const mid = (lo + hi) / 2;
+      const trial = place(mid, mid / aspect, false);
+      if (inSafe(trial.fx, trial.fy, input.safe)) lo = mid;
+      else hi = mid;
+    }
+    chosen = place(lo, lo / aspect, false);
+  }
+  const panned = place(chosen.w, chosen.h, true);
+  return { x: panned.x, y: panned.y, w: panned.w, h: panned.h };
 }

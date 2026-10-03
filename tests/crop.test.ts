@@ -61,6 +61,23 @@ describe("crop math", () => {
     inside(crop, 1920, 1080);
   });
 
+  it("does not pinch a side subject down to a sliver when a shift will do", () => {
+    const safe: SafeFrac = { top: 0.15, bottom: 0.35, left: 0.0444, right: 0.1778, blocks: [] };
+    const crop = frameCrop({
+      srcW: 1920,
+      srcH: 1080,
+      targetW: 1080,
+      targetH: 1920,
+      subject: { cx: 1700, cy: 540, w: 280, h: 700 },
+      safe,
+    });
+    inside(crop, 1920, 1080);
+    expect(crop.w).toBeGreaterThan(500);
+    const fx = (1700 - crop.x) / crop.w;
+    expect(fx).toBeGreaterThan(safe.left);
+    expect(fx).toBeLessThan(1 - safe.right);
+  });
+
   it("keeps a low subject out of the bottom safe zone", () => {
     const crop = frameCrop({
       srcW: 1920,
