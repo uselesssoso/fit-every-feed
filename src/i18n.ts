@@ -125,6 +125,7 @@ const UI = {
   stories: { en: "9:16 stories & reels", zh: "9:16 快拍 / Reels" },
   selectAll: { en: "All", zh: "全选" },
   file: { en: "Image", zh: "图片" },
+  dropTitle: { en: "Drop it here", zh: "把图拖进来" },
   fileEither: { en: "File", zh: "素材" },
   choose: { en: "Choose an image", zh: "选择图片" },
   chooseEither: { en: "Choose a file", zh: "选择文件" },

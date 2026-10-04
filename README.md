@@ -2,7 +2,7 @@
 
 One image in, every ad size out.
 
-A marketer drops in one image and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded. Video is postponed: the encode path is still in the repo, behind `ENABLE_VIDEO` in `src/flags.ts`, and it is not shown. The page is a white campaign layout with an orange accent, not graph paper.
+A marketer drops in one image and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded. Video is postponed: the encode path is still in the repo, behind `ENABLE_VIDEO` in `src/flags.ts`, and it is not shown. The page is a white campaign layout with an orange accent, not graph paper. The hero shows the sample as four poster crops beside a large drop zone.
 
 ## Run
 

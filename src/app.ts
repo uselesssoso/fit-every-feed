@@ -170,7 +170,10 @@ function applyCopy() {
   const tag = document.getElementById("tagline");
   const lede = document.getElementById("lede");
   const checked = document.getElementById("checked");
-  if (tag) tag.textContent = t("tagline", lang);
+  if (tag) {
+    if (lang === "en") tag.innerHTML = "One image in<br>every ad size out.";
+    else tag.innerHTML = "一张图，<br>出齐各平台尺寸。";
+  }
   if (lede) lede.textContent = t("lede", lang);
   if (checked) checked.textContent = t("checked", lang);
   document.querySelectorAll<HTMLButtonElement>(".lang").forEach((btn) => {
@@ -178,9 +181,10 @@ function applyCopy() {
     btn.classList.toggle("is-on", on);
     btn.setAttribute("aria-pressed", on ? "true" : "false");
   });
-  const map: [string, "placements" | "file" | "fileEither" | "sizes" | "choose" | "chooseEither" | "fileHint" | "fileHintVideo" | "sampleImage" | "sampleVideo" | "safeHint" | "drag" | "download"][] = [
+  const map: [string, "placements" | "file" | "fileEither" | "dropTitle" | "sizes" | "choose" | "chooseEither" | "fileHint" | "fileHintVideo" | "sampleImage" | "sampleVideo" | "safeHint" | "drag" | "download"][] = [
     ["h-placements", "placements"],
     ["h-file", ENABLE_VIDEO ? "fileEither" : "file"],
+    ["drop-title", "dropTitle"],
     ["h-sizes", "sizes"],
     ["choose", ENABLE_VIDEO ? "chooseEither" : "choose"],
     ["file-hint", ENABLE_VIDEO ? "fileHintVideo" : "fileHint"],
@@ -852,17 +856,20 @@ function manifestLine(group: OutputGroup, file: string): { file: string; placeme
 function mount() {
   const app = document.getElementById("app");
   if (!app) return;
-  app.innerHTML = `
-    <section class="block file-block">
-      <h2 id="h-file"></h2>
-      <div class="go-row">
+  const hero = document.getElementById("hero-slot");
+  if (hero) {
+    hero.innerHTML = `
+      <div class="drop" id="drop">
+        <p class="drop-kicker" id="h-file"></p>
+        <p class="drop-title" id="drop-title"></p>
         <button type="button" class="primary" id="choose"></button>
         <input id="file" type="file" hidden accept="${ACCEPT}">
+        <p class="hint" id="file-hint"></p>
       </div>
-      <p class="hint" id="file-hint"></p>
       <p class="samples"><button type="button" class="textlink" id="sample-image"></button>${ENABLE_VIDEO ? `<button type="button" class="textlink" id="sample-video"></button>` : ""}</p>
-      <p class="hint" id="file-meta"></p>
-    </section>
+      <p class="hint" id="file-meta"></p>`;
+  }
+  app.innerHTML = `
     <section class="block">
       <h2 id="h-placements"></h2>
       <p class="label" id="h-presets"></p>
@@ -1041,11 +1048,30 @@ function mount() {
     paint();
   });
 
+  const drop = document.getElementById("drop");
+  let dragDepth = 0;
+  const setOver = (on: boolean) => drop?.classList.toggle("is-over", on);
+  window.addEventListener("dragenter", (event) => {
+    event.preventDefault();
+    dragDepth += 1;
+    setOver(true);
+  });
   window.addEventListener("dragover", (event) => event.preventDefault());
+  window.addEventListener("dragleave", () => {
+    dragDepth = Math.max(0, dragDepth - 1);
+    if (dragDepth === 0) setOver(false);
+  });
   window.addEventListener("drop", (event) => {
     event.preventDefault();
+    dragDepth = 0;
+    setOver(false);
     const file = event.dataTransfer?.files?.[0];
     if (file) void loadFile(file).then(fileMeta);
+  });
+  drop?.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    if (target.closest("#choose, a, button")) return;
+    document.getElementById("file")?.click();
   });
 }
 
