@@ -2,7 +2,7 @@
 
 One image in, every ad size out.
 
-A marketer drops in one image and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded. Video is postponed: the encode path is still in the repo, behind `ENABLE_VIDEO` in `src/flags.ts`, and it is not shown.
+A marketer drops in one image and gets every selected ad size, framed on the subject. It runs entirely in the browser. The file is not uploaded. Video is postponed: the encode path is still in the repo, behind `ENABLE_VIDEO` in `src/flags.ts`, and it is not shown. The page is a white campaign layout with an orange accent, not graph paper.
 
 ## Run
 
@@ -21,7 +21,7 @@ npm run build
 ## What it does
 
 - Eight platforms, from the spec table in `src/data/ad_specs.json` (checked 2026-10-04): Google Ads, YouTube, Meta, TikTok, X, LinkedIn, Pinterest, Snapchat. Video-only placements are hidden until `ENABLE_VIDEO` is turned on. A placement that accepts a still is listed with its image spec.
-- Platforms start collapsed, with nothing selected. Each row shows the platform and how many sizes are picked. Quick picks cover 9:16 stories and reels, feed squares, vertical, landscape, and all.
+- Nothing is selected at first. Platforms are tabs; the tab shows how many sizes are picked. Quick picks cover 9:16 stories and reels, feed squares, vertical, landscape, and all.
 - Outputs are de-duplicated by exact pixel size. One file can cover several placements; the grid and `manifest.txt` say which. `1200×628` and `800×418` stay separate, because 1.911 and 1.914 are not the same crop.
 - JPG, PNG, and WebP are drawn to a canvas and zipped. JPEG quality steps down to meet the strictest file-size limit on that size.
 - Faces, then people, are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it uses the busiest part of the frame, then the center.

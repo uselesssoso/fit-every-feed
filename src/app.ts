@@ -44,7 +44,7 @@ type Asset = {
 const state = {
   lang: "en" as Lang,
   selected: new Set<string>(),
-  open: new Set<string>(),
+  tab: "google",
   safeOn: true,
   safePlatforms: new Set(["google", "youtube", "meta", "tiktok", "pinterest", "snapchat"]),
   file: null as File | null,
@@ -90,6 +90,16 @@ function groups(): OutputGroup[] {
 function selectedSizes(platformKey: string): number {
   const items = selectable().filter((item) => item.platformKey === platformKey && state.selected.has(item.id));
   return new Set(items.map((item) => `${item.width}x${item.height}`)).size;
+}
+
+function offeredPlatforms(): string[] {
+  return PLATFORM_ORDER.filter((key) => offered().some((item) => item.platformKey === key));
+}
+
+function activeTab(): string {
+  const keys = offeredPlatforms();
+  if (keys.includes(state.tab)) return state.tab;
+  return keys[0] ?? "google";
 }
 
 function adjOf(key: string): Adj {
@@ -190,40 +200,34 @@ function applyCopy() {
 
 function renderPicker() {
   const presets = document.getElementById("presets");
+  const tabs = document.getElementById("tabs");
   const root = document.getElementById("platforms");
-  if (!presets || !root) return;
+  if (!presets || !tabs || !root) return;
   presets.innerHTML = PRESETS.map((preset) => {
     const label = t(preset, state.lang);
     return `<button type="button" class="chip" data-preset="${preset}">${esc(label)}</button>`;
   }).join("");
 
-  const chunks: string[] = [];
-  for (const key of PLATFORM_ORDER) {
-    const items = offered().filter((item) => item.platformKey === key);
-    if (!items.length) continue;
-    const open = state.open.has(key);
-    const rows = items
-      .map((item) => {
-        const media = ENABLE_VIDEO
-          ? `<span class="dim">${esc(item.media === "both" ? `${t("imageTag", state.lang)}/${t("videoTag", state.lang)}` : t(item.media === "image" ? "imageTag" : "videoTag", state.lang))}</span>`
-          : "";
-        const verify = item.verifyBeforeUse ? `<span class="verify">${esc(t("verify", state.lang))}</span>` : "";
-        return `<div class="row"><button type="button" class="check" data-id="${esc(item.id)}">${esc(placementLabel(item, state.lang))}</button><span class="dim">${item.width}×${item.height}</span>${media}<a href="${esc(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t("source", state.lang))}</a>${verify}</div>`;
-      })
-      .join("");
-    chunks.push(`<section class="plat">
-      <button type="button" class="plat-toggle${open ? " is-open" : ""}" data-toggle="${key}" aria-expanded="${open ? "true" : "false"}">
-        <span class="caret">${open ? "[-]" : "[+]"}</span>
-        <span class="plat-name">${esc(PLATFORM_NAME[key])}</span>
-        <span class="plat-count" data-count="${key}"></span>
-      </button>
-      <div class="plist"${open ? "" : " hidden"}>
-        <button type="button" class="check" data-plat="${key}">${esc(t("selectAll", state.lang))}</button>
-        ${rows}
-      </div>
-    </section>`);
-  }
-  root.innerHTML = chunks.join("");
+  const active = activeTab();
+  state.tab = active;
+  tabs.innerHTML = offeredPlatforms()
+    .map((key) => {
+      const on = key === active;
+      return `<button type="button" class="tab${on ? " is-on" : ""}" role="tab" id="tab-${key}" data-tab="${key}" aria-selected="${on ? "true" : "false"}" aria-controls="panel-${key}"><span class="tab-name">${esc(PLATFORM_NAME[key])}</span><span class="tab-count" data-count="${key}"></span></button>`;
+    })
+    .join("");
+
+  const rows = offered()
+    .filter((item) => item.platformKey === active)
+    .map((item) => {
+      const media = ENABLE_VIDEO
+        ? `<span class="dim">${esc(item.media === "both" ? `${t("imageTag", state.lang)}/${t("videoTag", state.lang)}` : t(item.media === "image" ? "imageTag" : "videoTag", state.lang))}</span>`
+        : "";
+      const verify = item.verifyBeforeUse ? `<span class="verify">${esc(t("verify", state.lang))}</span>` : "";
+      return `<div class="row"><button type="button" class="check" data-id="${esc(item.id)}">${esc(placementLabel(item, state.lang))}</button><span class="px">${item.width}×${item.height}</span>${media}<a href="${esc(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t("source", state.lang))}</a>${verify}</div>`;
+    })
+    .join("");
+  root.innerHTML = `<div class="panel" id="panel-${active}" role="tabpanel" aria-labelledby="tab-${active}"><button type="button" class="check select-all" data-plat="${active}">${esc(t("selectAll", state.lang))}</button>${rows}</div>`;
   syncChecks();
 }
 
@@ -248,7 +252,7 @@ function syncChecks() {
     const count = document.querySelector<HTMLElement>(`[data-count="${key}"]`);
     if (count) {
       const n = selectedSizes(key);
-      count.textContent = t("picked", state.lang, { n });
+      count.textContent = n > 0 ? String(n) : "";
       count.classList.toggle("is-on", n > 0);
     }
   }
@@ -849,14 +853,7 @@ function mount() {
   const app = document.getElementById("app");
   if (!app) return;
   app.innerHTML = `
-    <section class="block">
-      <h2 id="h-placements"></h2>
-      <p class="label" id="h-presets"></p>
-      <div class="presets" id="presets"></div>
-      <p class="hint" id="dim-hint" hidden></p>
-      <div id="platforms"></div>
-    </section>
-    <section class="block">
+    <section class="block file-block">
       <h2 id="h-file"></h2>
       <div class="go-row">
         <button type="button" class="primary" id="choose"></button>
@@ -865,6 +862,16 @@ function mount() {
       <p class="hint" id="file-hint"></p>
       <p class="samples"><button type="button" class="textlink" id="sample-image"></button>${ENABLE_VIDEO ? `<button type="button" class="textlink" id="sample-video"></button>` : ""}</p>
       <p class="hint" id="file-meta"></p>
+    </section>
+    <section class="block">
+      <h2 id="h-placements"></h2>
+      <p class="label" id="h-presets"></p>
+      <div class="presets" id="presets"></div>
+      <p class="hint" id="dim-hint" hidden></p>
+      <div id="picker">
+        <div class="tabs" id="tabs" role="tablist" aria-labelledby="h-placements"></div>
+        <div id="platforms"></div>
+      </div>
     </section>
     <section class="block">
       <h2 id="h-sizes"></h2>
@@ -912,21 +919,13 @@ function mount() {
     renderResults();
   });
 
-  document.getElementById("platforms")?.addEventListener("click", (event) => {
+  document.getElementById("picker")?.addEventListener("click", (event) => {
     const target = event.target as HTMLElement;
     if (target.closest("a")) return;
-    const toggle = target.closest<HTMLButtonElement>("[data-toggle]");
-    if (toggle?.dataset.toggle && !target.closest("[data-id]") && !target.closest("[data-plat]")) {
-      const key = toggle.dataset.toggle;
-      if (state.open.has(key)) state.open.delete(key);
-      else state.open.add(key);
-      const open = state.open.has(key);
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.classList.toggle("is-open", open);
-      const caret = toggle.querySelector(".caret");
-      if (caret) caret.textContent = open ? "[-]" : "[+]";
-      const list = toggle.parentElement?.querySelector<HTMLElement>(".plist");
-      if (list) list.hidden = !open;
+    const tab = target.closest<HTMLButtonElement>("[data-tab]");
+    if (tab?.dataset.tab && !target.closest("[data-id]") && !target.closest("[data-plat]")) {
+      state.tab = tab.dataset.tab;
+      renderPicker();
       return;
     }
     const plat = target.closest<HTMLButtonElement>("[data-plat]");
