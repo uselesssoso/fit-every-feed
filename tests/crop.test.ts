@@ -125,6 +125,33 @@ describe("crop math", () => {
     inside(panned, 1920, 1080);
   });
 
+  it("puts a face on the upper third with room for hair and shoulders", () => {
+    const face = { cx: 1901, cy: 1245, w: 396, h: 396 };
+    for (const [targetW, targetH] of [
+      [9, 16],
+      [4, 5],
+      [1, 1],
+      [16, 9],
+    ] as const) {
+      const crop = frameCrop({
+        srcW: 4000,
+        srcH: 5600,
+        targetW,
+        targetH,
+        subject: face,
+        safe: null,
+      });
+      inside(crop, 4000, 5600);
+      const fy = (face.cy - crop.y) / crop.h;
+      expect(fy).toBeGreaterThan(0.28);
+      expect(fy).toBeLessThan(0.4);
+      const above = face.cy - face.h / 2 - crop.y;
+      expect(above).toBeGreaterThan(face.h * 0.6);
+      const below = crop.y + crop.h - (face.cy + face.h / 2);
+      expect(below).toBeGreaterThan(face.h);
+    }
+  });
+
   it("pulls the TikTok anchor left of center because of the icon column", () => {
     const anchor = safeAnchor({
       top: 0.125,

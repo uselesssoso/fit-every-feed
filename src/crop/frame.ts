@@ -69,16 +69,23 @@ function inSafe(fx: number, fy: number, safe: SafeFrac | null): boolean {
 }
 
 /**
+ * Where a subject sits when nothing is covering the frame.
+ * Upper third, not the middle: campaign-poster framing, with room above the head.
+ */
+const OPEN_ANCHOR = { x: 0.5, y: 0.33 };
+
+/**
  * Cover-crop of `targetW/targetH` inside the source.
- * The window shifts toward the safe-area centroid. It zooms in only when a
- * shift still leaves the subject under a covered band, or when the subject
- * is small enough to fill the safe area.
+ * The window shifts toward the safe-area centroid, or the upper third when
+ * the frame is open. It zooms in only when a shift still leaves the subject
+ * under a covered band, or when the subject is small enough to fill its share
+ * of the frame. That share stays loose so a face box keeps hair and shoulders.
  */
 export function frameCrop(input: FrameInput): CropRect {
   const { srcW, srcH, targetW, targetH } = input;
   const aspect = targetW / targetH;
   const base = maxCropSize(srcW, srcH, targetW, targetH);
-  const anchor = input.safe ? safeAnchor(input.safe) : { x: 0.5, y: 0.5 };
+  const anchor = input.safe ? safeAnchor(input.safe) : OPEN_ANCHOR;
   const subject = input.subject;
 
   let cw = base.w;
@@ -87,7 +94,9 @@ export function frameCrop(input: FrameInput): CropRect {
   if (subject && subject.w > 1 && subject.h > 1) {
     const safeW = input.safe ? Math.max(0.25, 1 - input.safe.left - input.safe.right) : 0.82;
     const safeH = input.safe ? Math.max(0.25, 1 - input.safe.top - input.safe.bottom) : 0.82;
-    const fill = 0.72;
+    // 0.28 × 0.82 ≈ 23% of an open frame, so a face box keeps hair above it and shoulders below.
+    // 0.72 framed that same box like a passport crop.
+    const fill = 0.28;
     let wantH = subject.h / (fill * safeH);
     let wantW = wantH * aspect;
     const wantW2 = subject.w / (fill * safeW);

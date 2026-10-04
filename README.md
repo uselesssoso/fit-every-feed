@@ -24,7 +24,7 @@ npm run build
 - Nothing is selected at first. Platforms are tabs; the tab shows how many sizes are picked. Quick picks cover 9:16 stories and reels, feed squares, vertical, landscape, and all.
 - Outputs are de-duplicated by exact pixel size. One file can cover several placements; the grid and `manifest.txt` say which. `1200×628` and `800×418` stay separate, because 1.911 and 1.914 are not the same crop.
 - JPG, PNG, and WebP are drawn to a canvas and zipped. JPEG quality steps down to meet the strictest file-size limit on that size.
-- Faces, then people, are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it uses the busiest part of the frame, then the center.
+- Faces, then people, are found with MediaPipe (BlazeFace, then EfficientDet). A person box that fills a wide frame is re-checked on overlapping halves so the crop sits on the body. If nothing is there, it uses the busiest part of the frame, then the center. With no safe zone, the subject sits on the upper third and the zoom stays loose enough to keep hair and shoulders in frame.
 - Drag and scroll on a preview pan and zoom.
 - Safe zones can be drawn per platform. The crop shifts to keep the subject out of them, and only zooms in when a shift is not enough.
 - A size that breaks minimum resolution, file size, or format is marked in red with a plain reason. It is still in the zip.

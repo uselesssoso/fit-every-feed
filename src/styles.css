@@ -122,10 +122,10 @@ html[lang="zh-Hans"] .lang.is-on { font-weight: 700; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-  gap: 36px 40px;
-  align-items: end;
-  margin-top: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+  column-gap: 40px;
+  align-items: start;
+  margin-top: 28px;
 }
 
 .tagline {
@@ -165,29 +165,57 @@ html[lang="zh-Hans"] .lede {
 
 .block { margin-top: 88px; }
 
+/* Mosaic matches the copy column. 9:16 is the tall left anchor, 4:5 over 1:1,
+   16:9 across the bottom. Ratios assume a 2cqw gutter (see frame comment in crop). */
 .posters {
-  display: grid;
-  grid-template-columns: minmax(120px, 0.72fr) minmax(0, 1fr);
-  grid-template-areas:
-    "tall square"
-    "tall four"
-    "wide wide";
-  gap: 12px 14px;
-  align-items: end;
-  height: auto;
+  position: relative;
+  align-self: stretch;
+  min-height: 100%;
+  margin: 0;
+  container-type: size;
+}
+.mosaic {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(100cqw, calc(100cqh * 0.639154));
+  aspect-ratio: 0.639154;
+  container-type: inline-size;
+}
+.mosaic-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+  height: 100%;
+}
+.poster-top {
+  display: flex;
+  flex: 2.2968 1 0;
+  gap: 2cqw;
+  min-height: 0;
+}
+.poster-side {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 2cqw;
+  min-width: 0;
+  min-height: 0;
+}
+.poster {
+  position: relative;
+  min-width: 0;
   min-height: 0;
   margin: 0;
 }
-.poster {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  margin: 0;
-}
+.poster-916 { flex: 1.2919 1 0; }
+.poster-45 { flex: 1.25 1 0; }
+.poster-11 { flex: 1 1 0; }
+.poster-169 { flex: 1.3155 1 0; }
 .poster img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
   border: 1px solid var(--ink);
   border-radius: 0;
@@ -196,7 +224,9 @@ html[lang="zh-Hans"] .lede {
   background: var(--paper);
 }
 .poster figcaption {
-  margin-top: 6px;
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
   color: var(--accent);
   font-family: var(--mono);
   font-size: 11px;
@@ -204,10 +234,6 @@ html[lang="zh-Hans"] .lede {
   letter-spacing: 0.04em;
   line-height: 1;
 }
-.poster-916 { grid-area: tall; }
-.poster-45 { grid-area: square; }
-.poster-11 { grid-area: four; }
-.poster-169 { grid-area: wide; }
 
 .drop {
   display: flex;
@@ -607,7 +633,23 @@ html[lang="zh-Hans"] .checked { letter-spacing: 0; }
   .hero-copy { display: contents; }
   .tagline { order: 1; }
   .lede { order: 2; }
-  .posters { order: 3; height: auto; min-height: 0; max-width: 560px; }
+  .posters {
+    order: 3;
+    position: relative;
+    align-self: auto;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    min-height: 0;
+    container-type: normal;
+  }
+  .mosaic {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    aspect-ratio: 0.639154;
+  }
   #hero-slot { order: 4; }
   .hero {
     grid-template-columns: 1fr;
