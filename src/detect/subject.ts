@@ -1,5 +1,6 @@
 import type { TrackPoint } from "../crop/smooth";
 import { saliencySubject } from "../crop/saliency";
+import { publicUrl } from "../public-url";
 
 export type FoundKind = "face" | "person" | "object" | "saliency" | "center";
 
@@ -54,7 +55,7 @@ function softwareGl(): boolean {
 export async function loadDetectors(): Promise<void> {
   if (faceDet || loadFailed) return;
   const { FaceDetector, ObjectDetector, FilesetResolver } = await import("@mediapipe/tasks-vision");
-  const wasm = await FilesetResolver.forVisionTasks(`${location.origin}/mediapipe`);
+  const wasm = await FilesetResolver.forVisionTasks(publicUrl("mediapipe"));
   // The GPU delegate can lock the main thread on a software GL driver.
   const delegates = softwareGl() ? (["CPU"] as const) : (["GPU", "CPU"] as const);
   let last: unknown;
@@ -62,7 +63,7 @@ export async function loadDetectors(): Promise<void> {
     try {
       const face = await withTimeout(
         FaceDetector.createFromOptions(wasm, {
-          baseOptions: { modelAssetPath: "/models/blaze_face_full_range.tflite", delegate },
+          baseOptions: { modelAssetPath: publicUrl("models/blaze_face_full_range.tflite"), delegate },
           runningMode: "IMAGE",
           minDetectionConfidence: 0.35,
         }),
@@ -70,7 +71,7 @@ export async function loadDetectors(): Promise<void> {
       );
       const objects = await withTimeout(
         ObjectDetector.createFromOptions(wasm, {
-          baseOptions: { modelAssetPath: "/models/efficientdet_lite0.tflite", delegate },
+          baseOptions: { modelAssetPath: publicUrl("models/efficientdet_lite0.tflite"), delegate },
           runningMode: "IMAGE",
           scoreThreshold: 0.35,
         }),

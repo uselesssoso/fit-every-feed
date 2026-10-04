@@ -10,6 +10,7 @@ import { renderImage } from "./export/image";
 import { makeZip, manifestText } from "./export/zip";
 import { noteText, placementLabel, t, violationText, type Lang } from "./i18n";
 import { ENABLE_VIDEO } from "./flags";
+import { publicUrl } from "./public-url";
 
 const PLATFORM_NAME: Record<string, string> = {
   google: "Google Ads",
@@ -977,10 +978,10 @@ function mount() {
   });
 
   document.getElementById("sample-image")?.addEventListener("click", () => {
-    void fetchSample("/samples/person.jpg", "person.jpg", "image/jpeg");
+    void fetchSample(publicUrl("samples/person.jpg"), "person.jpg", "image/jpeg");
   });
   document.getElementById("sample-video")?.addEventListener("click", () => {
-    void fetchSample("/samples/person.mp4", "person.mp4", "video/mp4");
+    void fetchSample(publicUrl("samples/person.mp4"), "person.mp4", "video/mp4");
   });
   document.getElementById("export")?.addEventListener("click", () => void doExport());
 
