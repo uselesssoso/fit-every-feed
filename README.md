@@ -43,7 +43,7 @@ Nothing about the asset leaves the machine. Decoding, detection, cropping, encod
 
 Video, when `ENABLE_VIDEO` is turned on, samples up to 160 frames, eases the crop, and exports 30 fps H.264 in a worker. That path needs WebCodecs. It is off in this build, including in the interface.
 
-The sample image is one frame of a Pexels clip of a person walking (Miriam Alonso).
+The sample image is a studio portrait by Alina Matveycheva, used under the Unsplash License. See `CREDITS.md`. The hero posters are face-detected crops of that file.
 
 ## Spec decisions
 
