@@ -219,13 +219,12 @@ html[lang="zh-Hans"] .chip.is-on { font-weight: 700; }
 }
 
 .tab {
+  position: relative;
   display: inline-flex;
   flex: none;
   align-items: baseline;
   gap: 0.45em;
-  margin-bottom: -1px;
-  padding: 14px 16px 12px;
-  border-bottom: 2px solid transparent;
+  padding: 14px 16px 13px;
   color: var(--muted);
   font-size: 13px;
   font-weight: 500;
@@ -234,9 +233,15 @@ html[lang="zh-Hans"] .chip.is-on { font-weight: 700; }
   text-transform: uppercase;
   white-space: nowrap;
 }
-.tab.is-on {
-  color: var(--ink);
-  border-bottom-color: var(--accent);
+.tab.is-on { color: var(--ink); }
+.tab.is-on::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--accent);
 }
 .tab:hover { color: var(--ink); }
 
