@@ -2,7 +2,7 @@
 
 One image in, every ad size out.
 
-https://uselesssoso.github.io/fit-every-feed/
+https://uselesssoso.github.io/fit-every-feed-site/
 
 You give it one image. It gives you the ad sizes you picked, cropped on the subject. Stills only, for now. The video path is in the repo and turned off.
 
@@ -21,4 +21,6 @@ npm install
 npm run dev
 ```
 
-The dev server is at `/fit-every-feed/`. `npm test` runs the checks. `npm run build` writes `dist`.
+The dev server is at `/fit-every-feed-site/`. `npm test` runs the checks. `npm run build` writes `dist`.
+
+The live site is the built files in the public repo `uselesssoso/fit-every-feed-site`. This source repo stays private.
