@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fit-every-feed</title>
+  <meta name="description" content="One image in, every ad size out. Runs in the browser. Nothing is uploaded.">
+  <link rel="canonical" href="https://uselesssoso.github.io/fit-every-feed/">
+  <meta property="og:title" content="fit-every-feed">
+  <meta property="og:description" content="One image in, every ad size out. Runs in the browser. Nothing is uploaded.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uselesssoso.github.io/fit-every-feed/">
+  <meta property="og:image" content="https://uselesssoso.github.io/fit-every-feed/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="fit-every-feed. One image in, every ad size out.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="fit-every-feed">
+  <meta name="twitter:description" content="One image in, every ad size out. Runs in the browser. Nothing is uploaded.">
+  <meta name="twitter:image" content="https://uselesssoso.github.io/fit-every-feed/og.jpg">
+  <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+  <script>
+    try {
+      var saved = localStorage.getItem("fef-lang");
+      var lang = saved === "zh" ? "zh" : "en";
+      document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
+      document.documentElement.dataset.lang = lang;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="page">
+    <header class="head">
+      <div class="title">
+        <svg class="plug" viewBox="4 11 56 36" width="40" height="26" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M31.5 15.2c3.9-.4 9.6-.5 13.1.1.9 3.9 1 13.9.2 18.3-3.6.7-9.4.6-13.4.1-.7-5-.6-13.6.1-18.5z"/>
+            <path d="M44.9 20.6c4-.2 8.6 0 12.3.3M45 28.6c4.1-.1 8.7 0 12.4.4"/>
+            <path d="M31.4 21.3c-2.6.2-4.8.3-6.6.9-.4 1.6-.3 3.6.1 5.2 1.9.5 4.2.6 6.5.6"/>
+            <path d="M24.9 24.8C19 25.2 14.3 27.9 12 32.2c-2.6 4.9.4 9.6 5.3 9.2 4.4-.4 4.6-5.6 1-6.4-4.1-.9-8.6 3.4-11.2 9.6"/>
+          </g>
+        </svg>
+        <h1>fit-every-feed</h1>
+      </div>
+      <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang is-on" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </header>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="tagline" id="tagline"></p>
+        <p class="lede" id="lede"></p>
+        <div id="hero-slot"></div>
+      </div>
+      <figure class="posters">
+        <div class="mosaic">
+          <div class="mosaic-inner">
+            <div class="poster-top">
+              <div class="poster poster-916">
+                <img src="%BASE_URL%samples/hero/9x16.jpg" alt="" width="720" height="1280">
+                <figcaption>9:16</figcaption>
+              </div>
+              <div class="poster-side">
+                <div class="poster poster-45">
+                  <img src="%BASE_URL%samples/hero/4x5.jpg" alt="" width="800" height="1000">
+                  <figcaption>4:5</figcaption>
+                </div>
+                <div class="poster poster-11">
+                  <img src="%BASE_URL%samples/hero/1x1.jpg" alt="" width="900" height="900">
+                  <figcaption>1:1</figcaption>
+                </div>
+              </div>
+            </div>
+            <div class="poster poster-169">
+              <img src="%BASE_URL%samples/hero/16x9.jpg" alt="" width="1280" height="720">
+              <figcaption>16:9</figcaption>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+    <div id="app"></div>
+    <p class="checked" id="checked"></p>
+    <footer class="site-footer">
+      <a class="credit" href="https://unsplash.com/photos/a-woman-models-a-blazer-in-a-monochrome-studio-tjCROIpFD0Y">Photo · Alina Matveycheva</a>
+      <a href="https://github.com/uselesssoso">@uselesssoso</a>
+    </footer>
+  </div>
+  <video id="player" class="player" playsinline muted loop></video>
+  <noscript>
+    <p>This page needs JavaScript. Nothing is sent anywhere.</p>
+    <p>这个页面需要打开 JavaScript。什么都不会发出去。</p>
+  </noscript>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
